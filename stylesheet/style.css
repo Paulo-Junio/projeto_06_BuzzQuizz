@@ -2,6 +2,7 @@
 
 *{
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -36,7 +37,54 @@ body {
     color: #FFFFFF;
 }
 
-.quizzes-user{
+.main{
+    display: flex;
     
 }
 
+.quizzes-user{
+    position: absolute;
+    width: 80%;
+    height: 30%;
+    top:20%;
+    left:10%;
+    background: #FAFAFA;
+    border: 1px dashed #D5D5D5;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.naoCriou{
+    width:27%;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 90%;
+    line-height: 23px;
+    color: #B9B9B9;
+    padding-bottom:2%;
+}
+
+.btn-criar{
+    width:22%;
+    height: 20%;
+    background: #FAFAFA;
+    border: 1px dashed #EC362D;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 90%;
+    color: #EC362D;
+    top:10px;
+}
+
+.quizzes-site{
+    
+}
