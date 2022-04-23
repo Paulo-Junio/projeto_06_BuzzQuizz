@@ -1,0 +1,9 @@
+//FORMULÁRIO
+
+function abrirForms() {
+  alert("html do forms");
+}
+
+function prosseguirPerg() {
+  alert("salva infos + abre pagina de perguntas");
+}

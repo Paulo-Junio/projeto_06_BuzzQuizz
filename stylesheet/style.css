@@ -232,11 +232,8 @@ strong {
 }
 
 .box-perguntas {
-  position: fixed;
-  top: 33%;
   width: 58%;
   padding:1%;
-  min-height:60%;
   background: #ffffff;
   border-radius: 4px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
@@ -244,11 +241,37 @@ strong {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  z-index:2;
 }
+
+.pergunta1{
+  margin-top:20%;
+  padding:1%;
+  
+}
+
+.pergunta2{
+margin-top:5%;
+}
+
+.pergunta3{
+  margin-top:5%;
+  margin-bottom: 1%;
+}
+
+
 p {
   font-weight: 700;
   font-size: 92%;
 }
 .hidden {
   display: none;
+}
+
+.static{
+  position: static;
+}
+
+.behind{
+  z-index:0;
 }
