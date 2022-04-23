@@ -1,134 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheet/reset.css" />
-    <link rel="stylesheet" href="/stylesheet/style.css" />
 
-    <meta name="description" content="Novo BuzzQuizz" />
-    <meta name="keywords" content="Buzz, Quizz" />
-    <meta name="author" content="Anne, Paulo" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheet/reset.css" />
+  <link rel="stylesheet" href="/stylesheet/style.css" />
 
-    <title>BuzzQuizz</title>
-  </head>
-  <body>
-    <div class="header">
-      <div class="logo">BuzzQuizz</div>
+  <meta name="description" content="Novo BuzzQuizz" />
+  <meta name="keywords" content="Buzz, Quizz" />
+  <meta name="author" content="Anne, Paulo" />
+
+  <title>BuzzQuizz</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">BuzzQuizz</div>
+  </div>
+
+  <div class="main hidden">
+    <div class="quizzes-user">
+      <div class="naoCriou">
+        Você não criou nenhum quizz ainda :(
+      </div>
+
+      <button class="btn-criar" onclick="abrirForms()">Criar Quizz</button>
+    </div>
+    <!-- fecha quizz-user -->
+    <div class="quizz-user2">
+      <div class="h2">
+        <button onclick="abrirForms()"><strong>Seus Quizzes</strong></button>
+        <button onclick="abrirForms()">
+          <ion-icon class="addicon" name="add-circle"></ion-icon>
+        </button>
+      </div>
+
+      <div class="icons">
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--quizz-user2-->
+
+    <div class="quizzes-site">
+      <div class="h2">
+        Todos os Quizzes
+      </div>
+
+      <div class="icons">
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fecha quizzes-site-->
+  </div><!-- fecha main1-->
+
+
+  <div class="main2 hidden">
+    <div class="header-forms">
+      <strong>Comece pelo começo</strong>
     </div>
 
-    <div class="main">
-      <div class="quizzes-user hidden">
-        <div class="naoCriou">
-          Você não criou nenhum quizz ainda :(
-        </div>
-
-        <div class="btn-criar">
-          Criar Quizz
-        </div>
-      </div>
-      <!-- fecha quizz-user -->
-      <div class="quizz-user2">
-        <div class="h2">
-          Seus Quizzes <ion-icon class="addicon" name="add-circle"></ion-icon>
-        </div>
-
-        <div class="icons">
-          <div class="quizz-icon">
-            <img
-              class="img-quizzsite"
-              src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032"
-              alt=""
-            />
-            <div class="texto">
-              O texto entra aqui…
-            </div>
-          </div>
-          <div class="quizz-icon">
-            <img
-              class="img-quizzsite"
-              src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032"
-              alt=""
-            />
-            <div class="texto">
-              O texto entra aqui…
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="quizzes-site">
-        <div class="h2">
-          Todos os Quizzes
-        </div>
-
-        <div class="icons">
-          <div class="quizz-icon">
-            <img
-              class="img-quizzsite"
-              src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032"
-              alt=""
-            />
-            <div class="texto">
-              O texto entra aqui…
-            </div>
-          </div>
-          <div class="quizz-icon">
-            <img
-              class="img-quizzsite"
-              src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032"
-              alt=""
-            />
-            <div class="texto">
-              O texto entra aqui…
-            </div>
-          </div>
-          <div class="quizz-icon">
-            <img
-              class="img-quizzsite"
-              src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032"
-              alt=""
-            />
-            <div class="texto">
-              O texto entra aqui…
-            </div>
-          </div>
-          <div class="quizz-icon">
-            <img
-              class="img-quizzsite"
-              src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032"
-              alt=""
-            />
-            <div class="texto">
-              O texto entra aqui…
-            </div>
-          </div>
-          <div class="quizz-icon">
-            <img
-              class="img-quizzsite"
-              src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032"
-              alt=""
-            />
-            <div class="texto">
-              O texto entra aqui…
-            </div>
-          </div>
-          <div class="quizz-icon">
-            <img
-              class="img-quizzsite"
-              src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032"
-              alt=""
-            />
-            <div class="texto">
-              O texto entra aqui…
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- fecha quizzes-site-->
+    <div class="box-info-geral">
+      <input class="inputbox" type="text" placeholder="   Título do seu quizz" value="" />
+      <input class="inputbox" type="text" placeholder="   URL da imagem do seu quizz" value="" />
+      <input class="inputbox" type="text placeholder=" Quantidade de perguntas do quizz value="" />
+      <input class="inputbox" type="text" placeholder="   Quantidade de níveis do quizz" value="" />
     </div>
-    <!-- fecha main -->
+
+    <button class="btn-prosseguir" onclick="prosseguirPerg()">Prosseguir pra criar perguntas </button>
+  </div><!-- fecha main 2-->
+
+  <div class="main3 ">
+    <div class="header-forms">
+      <strong>Crie suas perguntas</strong>
+    </div>
+
+    <div class="box-perguntas pergunta1">
+
+      <p> Pergunta 1 </p>
+      <input class="inputbox" type="text" placeholder="   Texto da pergunta" value="" />
+
+      <input class="inputbox" type="text" placeholder="   Cor de fundo da pergunta" value="" />
+
+
+      <p> Resposta correta </p>
+      <input class="inputbox" type="text" placeholder="   Resposta correta" value="" />
+
+      <input class="inputbox" type="text" placeholder="   URL da imagem" value="" />
+
+      
+      <p> Respostas incorretas </p>
+      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 1" value="" />
+
+      <input class="inputbox" type="text" placeholder="   URL da imagem: 1" value="" />
+
+      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 2" value="" />
+
+      <input class="inputbox" type="text" placeholder="   URL da imagem: 2" value="" />
+
+      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 3" value="" />
+
+      <input class="inputbox" type="text" placeholder="   URL da imagem: 3" value="" />
+    </div>
+
+    
+  </div>
+    <!-- fecha main 3-->
+
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-  </body>
+    <script src="/javascripts/scripts.js"></script>
+</body>
+
 </html>
