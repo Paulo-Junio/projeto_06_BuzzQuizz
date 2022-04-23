@@ -7,3 +7,19 @@ function abrirForms() {
 function prosseguirPerg() {
   alert("salva infos + abre pagina de perguntas");
 }
+
+function prosseguirNiv() {
+    alert("salva infos + abre pagina de niveis");
+}
+  
+function finalizarQuizz() {
+   alert("salva infos + abre pagina de niveis");
+}
+
+function acessarQuizz(){
+  alert("leva ao link do quizz?");
+}
+
+function home(){
+  alert ("volta pro main1")
+}

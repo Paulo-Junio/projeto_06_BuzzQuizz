@@ -109,7 +109,6 @@
     <!-- fecha quizzes-site-->
   </div><!-- fecha main1-->
 
-
   <div class="main2 hidden">
     <div class="header-forms">
       <strong>Comece pelo começo</strong>
@@ -125,7 +124,7 @@
     <button class="btn-prosseguir" onclick="prosseguirPerg()">Prosseguir pra criar perguntas </button>
   </div><!-- fecha main 2-->
 
-  <div class="main3 ">
+  <div class="main3 hidden">
     <div class="header-forms behind">
       <strong>Crie suas perguntas</strong>
     </div>
@@ -214,12 +213,74 @@
 
       <input class="inputbox" type="text" placeholder="   URL da imagem: 3" value="" />
     </div>
-  <button class="btn-prosseguir static">Prosseguir para criar níveis</button>
-</div>
+  <button class="btn-prosseguir static" onclick="prosseguirNiv()">Prosseguir para criar níveis</button>
+  </div>
     <!-- fecha main 3-->
+  <div class="main4 hidden">
+  <div class="header-forms behind">
+    <strong>Agora, decida os níveis</strong>
+  </div>
 
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <script src="/javascripts/scripts.js"></script>
+  <div class="box-perguntas nivel 1">
+
+    <p> Nivel 1 </p>
+    <input class="inputbox" type="text" placeholder="   Título do nível" value="" />
+
+    <input class="inputbox" type="text" placeholder="   % de acerto mínima" value="" />
+  
+    <input class="inputbox" type="text" placeholder="   URL da imagem do nível" value="" />
+
+    <input class="inputbox" type="text" placeholder="   Descrição do nível" value="" />
+
+  </div>
+  <div class="box-perguntas nivel 2">
+
+    <p> Nivel 2 </p>
+    <input class="inputbox" type="text" placeholder="   Título do nível" value="" />
+
+    <input class="inputbox" type="text" placeholder="   % de acerto mínima" value="" />
+  
+    <input class="inputbox" type="text" placeholder="   URL da imagem do nível" value="" />
+
+    <input class="inputbox" type="text" placeholder="   Descrição do nível" value="" />
+
+  </div>
+  <div class="box-perguntas nivel 3">
+
+    <p> Nivel 3 </p>
+    <input class="inputbox" type="text" placeholder="   Título do nível" value="" />
+
+    <input class="inputbox" type="text" placeholder="   % de acerto mínima" value="" />
+  
+    <input class="inputbox" type="text" placeholder="   URL da imagem do nível" value="" />
+
+    <input class="inputbox" type="text" placeholder="   Descrição do nível" value="" />
+
+  </div>
+
+  <button class="btn-prosseguir static" onclick="finalizarQuizz()">Finalizar quizz</button>
+  </div>
+
+  <div class="main5">
+    
+    <strong>Seu quizz está pronto!</strong>
+    
+  <div class="box-img">
+    <img class="img-quizz"
+    src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+    <div class="texto-fim">
+    O texto entra aqui…
+    </div>
+  </div>
+  <button class="btn-prosseguir static" onclick="acessarQuizz()">Acessar quizz</button>
+  <button class="home" onclick="home()">Voltar para home</button>
+  </div> <!--fecha main 5-->
+
+
+
+
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <script src="/javascripts/scripts.js"></script>
 </body>
 
 </html>

@@ -158,6 +158,7 @@ button {
   cursor: pointer;
   border: inherit;
   background-color: inherit;
+  
 }
 
 strong {
@@ -212,6 +213,7 @@ strong {
 .btn-prosseguir {
   position: fixed;
   width: 26%;
+  padding:1%;
   min-height: 6%;
   top: 68%;
   border-radius: 15px;
@@ -247,7 +249,6 @@ strong {
 .pergunta1{
   margin-top:20%;
   padding:1%;
-  
 }
 
 .pergunta2{
@@ -259,11 +260,65 @@ margin-top:5%;
   margin-bottom: 1%;
 }
 
+/*NIVEIS*/
+.main4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top:12%;
+}
+
+.nivel{
+  margin: 2% 0 2% 0;
+  }
+  
+/*QUIZZ ESTÁ PRONTO*/
+
+.main5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top:12%;
+}
+
+
+
+.box-img {
+  height:23%;
+  width:33%;
+  padding-right: 1%;
+  padding-left: 1%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  position: relative;
+  display: inline-block;
+}
+
+.texto-fim {
+  position: absolute;
+  font-size: 15px;
+  z-index: 2;
+  bottom: 4%;
+  left: 5%;
+  font-weight: 500;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.home{
+margin-top: 1%;
+color: #818181;
+}
+
+/* GERAL */
 
 p {
   font-weight: 700;
   font-size: 92%;
 }
+
 .hidden {
   display: none;
 }
