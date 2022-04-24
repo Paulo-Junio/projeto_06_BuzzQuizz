@@ -2,7 +2,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 54px;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('../Images/Rectangle.png');
     width: 100%;
     height: 227px;
@@ -54,15 +54,74 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 85px;
 }
 
 .respondida .opacidade {
     opacity: 0.3;
 }
-.resposta-errada {
+.respondida .resposta-errada {
     color: #FF4B4B;
+    cursor: pointer;
 }
 
-.resposta-certa {
+.respondida .resposta-certa {
     color:#009C22;
+    cursor: pointer;
+}
+
+.resultado-quiz {
+    width: 759px;
+    height: 430px;
+    margin-top: 70px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    padding: 18px;
+}
+
+.resultado-quiz .enunciado {
+    background-color: #EC362D;
+    width: 725px;
+    height: 99px;
+}
+
+.mensagem {
+    display: flex;
+    font-size: 19px;
+    line-height: 25px;
+    color: #484848;
+}
+
+.mensagem div{
+    width: 300px;
+    text-align: justify;
+}
+
+.mensagem img {
+    width: 364px;
+    height: 273px;
+    margin-right: 21px;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px;
+}
+
+.reiniciar {
+    width: 260px;
+    height: 52px;
+    border-radius: 15px;
+    background-color: #EC362D;
+    color: #FFF5F4;
+    font-size: 21px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.home {
+    font-size: 21px;
+    text-align: center;
+    color: #818181;
 }

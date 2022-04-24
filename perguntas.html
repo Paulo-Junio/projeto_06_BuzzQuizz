@@ -18,103 +18,95 @@
     </div>
     <div class="container">
         <div class="box-respostas">
-                <div class="enunciado">
-                    <span>Em qual animal Olho-Tonto Moddy transfigurou Malfoy?</span>
-                </div>
-                <div class="respostas respondida">
-                <div class="resposta-certa">
+            <div class="enunciado">
+                <span>Em qual animal Olho-Tonto Moddy transfigurou Malfoy?</span>
+            </div>
+            <div class="respostas">
+                <div class="resposta-certa opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/gato.png" >
                     <p>Gatineo</p>
                 </div>
-                <div class="resposta-errada opacidade">
+                <div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/rato.png">
                     <p>Ratata</p>
                 </div>
-                <div class="resposta-errada opacidade">
+                <div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/sapo.png">
                     <p>Sapo Gordo</p>
                 </div>
-                <div class="resposta-errada opacidade">
+                <div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/furao.png">
                     <p>Mustela putorius (o Furão)</p>
                 </div>
-                </div>
             </div>
+        </div>
 
-            <div class="box-respostas">
-                <div class="enunciado">
-                    <span>Em qual animal Olho-Tonto Moddy transfigurou Malfoy?</span>
-                </div>
-                <div class="respostas">
-                <div>
+        <div class="box-respostas">
+            <div class="enunciado">
+                <span>Em qual animal Olho-Tonto Moddy transfigurou Malfoy?</span>
+            </div>
+            <div class="respostas">
+                <div class="resposta-certa opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/gato.png" >
                     <p>Gatineo</p>
                 </div>
-                <div>
+                <div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/rato.png">
                     <p>Ratata</p>
                 </div>
-                <div>
+                <div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/sapo.png">
                     <p>Sapo Gordo</p>
                 </div>
-                <div>
+                <div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/furao.png">
                     <p>Mustela putorius (o Furão)</p>
                 </div>
-                </div>
             </div>
+        </div>
 
-            <div class="box-respostas">
-                <div class="enunciado">
-                    <span>Em qual animal Olho-Tonto Moddy transfigurou Malfoy?</span>
-                </div>
-                <div class="respostas">
-                <div>
+        <div class="box-respostas">
+            <div class="enunciado">
+                <span>Em qual animal Olho-Tonto Moddy transfigurou Malfoy?</span>
+            </div>
+            <div class="respostas">
+                <div class="resposta-certa opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/gato.png" >
                     <p>Gatineo</p>
                 </div>
-                <div>
+                <div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/rato.png">
                     <p>Ratata</p>
                 </div>
-                <div>
+                <div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/sapo.png">
                     <p>Sapo Gordo</p>
                 </div>
-                <div>
+                <div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                     <img src="./Images/furao.png">
                     <p>Mustela putorius (o Furão)</p>
                 </div>
-                </div>
             </div>
+        </div>
 
-            <div class="box-respostas">
-                <div class="enunciado">
-                    <span>Em qual animal Olho-Tonto Moddy transfigurou Malfoy?</span>
-                </div>
-                <div class="respostas">
+        <div class="resultado-quiz">
+            <div class="enunciado">
+                <span>Em qual animal Olho-Tonto Moddy transfigurou Malfoy?</span>
+            </div>
+            <div class="mensagem">
+                <img src="./Images/mensagem.png">
                 <div>
-                    <img src="./Images/gato.png" >
-                    <p>Gatineo</p>
-                </div>
-                <div>
-                    <img src="./Images/rato.png">
-                    <p>Ratata</p>
-                </div>
-                <div>
-                    <img src="./Images/sapo.png">
-                    <p>Sapo Gordo</p>
-                </div>
-                <div>
-                    <img src="./Images/furao.png">
-                    <p>Mustela putorius (o Furão)</p>
-                </div>
+                <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p>
                 </div>
             </div>
+        </div>
+
+        <div class="botoes">
+            <button class="reiniciar" onclick="reiniciarQuiz()">Reiniciar Quizz</button>
+            <button class="home">Voltar pra home</button>
+        </div>
+
     </div>
-
-
-
+    <script src="./javascripts/quiz-respostas.js"></script>
 </body>
 </html>
