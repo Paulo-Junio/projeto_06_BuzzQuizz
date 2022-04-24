@@ -123,155 +123,37 @@
   </div><!-- fecha main 2-->
 
   <div class="main3 hidden">
+
     <div class="header-forms behind">
       <strong>Crie suas perguntas</strong>
     </div>
 
-    <div class="box-perguntas pergunta1">
-
-      <p> Pergunta 1 </p>
-      <input class="inputbox" type="text" placeholder="   Texto da pergunta" value="" />
-
-      <input class="inputbox" type="text" placeholder="   Cor de fundo da pergunta" value="" />
-
-
-      <p> Resposta correta </p>
-      <input class="inputbox" type="text" placeholder="   Resposta correta" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem" value="" />
-
-      
-    
-        <p> Respostas incorretas </p>
-      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 1" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem: 1" value="" />
-
-      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 2" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem: 2" value="" />
-
-      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 3" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem: 3" value="" />
+    <div class="container perguntas">
     </div>
 
-    <div class="box-perguntas pergunta2">
-
-      <p> Pergunta 2 </p>
-      <input class="inputbox" type="text" placeholder="   Texto da pergunta" value="" />
-
-      <input class="inputbox" type="text" placeholder="   Cor de fundo da pergunta" value="" />
-    
-      <p> Resposta correta </p>
-      <input class="inputbox" type="text" placeholder="   Resposta correta" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem" value="" />
-
-      
-    
-        <p> Respostas incorretas </p>
-      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 1" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem: 1" value="" />
-
-      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 2" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem: 2" value="" />
-
-      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 3" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem: 3" value="" />
-    </div>
-
-    <div class="box-perguntas pergunta3">
-
-      <p> Pergunta 3 </p>
-      <input class="inputbox" type="text" placeholder="   Texto da pergunta" value="" />
-
-      <input class="inputbox" type="text" placeholder="   Cor de fundo da pergunta" value="" />
-    
-      <p> Resposta correta </p>
-      <input class="inputbox" type="text" placeholder="   Resposta correta" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem" value="" />
-
-      
-    
-        <p> Respostas incorretas </p>
-      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 1" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem: 1" value="" />
-
-      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 2" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem: 2" value="" />
-
-      <input class="inputbox" type="text" placeholder="   Resposta incorreta: 3" value="" />
-
-      <input class="inputbox" type="text" placeholder="   URL da imagem: 3" value="" />
-    </div>
   <button class="btn-prosseguir static" onclick="prosseguirNiv()">Prosseguir para criar níveis</button>
-  </div>
-    <!-- fecha main 3-->
+  </div><!-- fecha main 3-->
+
   <div class="main4 hidden">
-  <div class="header-forms behind">
-    <strong>Agora, decida os níveis</strong>
-  </div>
+    <div class="header-forms behind">
+      <strong>Agora, decida os níveis</strong>
+    </div>
 
-  <div class="box-perguntas nivel 1">
+    <div class="container niveis">
+    </div>
 
-    <p> Nivel 1 </p>
-    <input class="inputbox" type="text" placeholder="   Título do nível" value="" />
-
-    <input class="inputbox" type="text" placeholder="   % de acerto mínima" value="" />
-  
-    <input class="inputbox" type="text" placeholder="   URL da imagem do nível" value="" />
-
-    <input class="inputbox" type="text" placeholder="   Descrição do nível" value="" />
-
-  </div>
-  <div class="box-perguntas nivel 2">
-
-    <p> Nivel 2 </p>
-    <input class="inputbox" type="text" placeholder="   Título do nível" value="" />
-
-    <input class="inputbox" type="text" placeholder="   % de acerto mínima" value="" />
-  
-    <input class="inputbox" type="text" placeholder="   URL da imagem do nível" value="" />
-
-    <input class="inputbox" type="text" placeholder="   Descrição do nível" value="" />
-
-  </div>
-  <div class="box-perguntas nivel 3">
-
-    <p> Nivel 3 </p>
-    <input class="inputbox" type="text" placeholder="   Título do nível" value="" />
-
-    <input class="inputbox" type="text" placeholder="   % de acerto mínima" value="" />
-  
-    <input class="inputbox" type="text" placeholder="   URL da imagem do nível" value="" />
-
-    <input class="inputbox" type="text" placeholder="   Descrição do nível" value="" />
-
-  </div>
-
-  <button class="btn-prosseguir static" onclick="finalizarQuizz()">Finalizar quizz</button>
+    <button class="btn-prosseguir static" onclick="finalizarQuizz()">Finalizar quizz</button>
   </div>
 
   <div class="main5 hidden">
     
     <strong>Seu quizz está pronto!</strong>
     
-  <div class="box-img">
-    <img class="img-quizz"
-    src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
-    <div class="texto-fim">
-    O texto entra aqui…
+    <div class="box-img">
     </div>
-  </div>
-  <button class="btn-prosseguir static" onclick="acessarQuizz()">Acessar quizz</button>
-  <button class="home" onclick="home()">Voltar para home</button>
+  
+    <button class="btn-prosseguir static" onclick="acessarQuizz()">Acessar quizz</button>
+    <button class="home" onclick="home()">Voltar para home</button>
   </div> <!--fecha main 5-->
 
 
