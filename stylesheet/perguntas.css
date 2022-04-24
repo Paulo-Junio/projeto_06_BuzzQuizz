@@ -1,3 +1,5 @@
+
+/* CSS DO BANNER DO QUIZ */
 .topo-quiz {
     display:flex;
     justify-content: center;
@@ -9,6 +11,8 @@
     color: #FFFFFF;
     font-size: 39px;
 }
+
+/* CSS DO BOX DO ENUNCIADO COM A RESPOSTAS */
 
 .box-respostas {
     display: flex;
@@ -69,6 +73,8 @@
     color:#009C22;
     cursor: pointer;
 }
+
+/* CSS DA FINALIZAÇÃO DO QUIZ */
 
 .resultado-quiz {
     width: 759px;
