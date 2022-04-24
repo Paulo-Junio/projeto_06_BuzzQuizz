@@ -2,7 +2,16 @@ let title;
 let image;
 let qtPerg;
 let qtNiveis;
-
+let textopergunta;
+let corpergunta;
+let textocorreta;
+let imagemcorreta;
+let textoincorreta1;
+let imagemincorreta1;
+let textoincorreta2;
+let imagemincorreta2;
+let textoincorreta3;
+let imagemincorreta3;
 
 
 //FORMULÁRIO
@@ -37,16 +46,6 @@ function prosseguirPerg() {
 
 
   function testeURL(){       
-    function isvalidURL(image) {
-      var pattern = new RegExp('^(https?:\\/\\/)?'+ 
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ 
-        '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
-        '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
-        '(\\#[-a-z\\d_]*)?$','i'); 
-      return !!pattern.test(image); 
-    }
-
     if (isvalidURL(image)){
       testeqtPerg()
     }else{
@@ -71,8 +70,6 @@ function prosseguirPerg() {
     }
   }
 
-
-
   let container = document.querySelector(".perguntas");
 
   for (let i = 0; i < qtPerg; i++) {
@@ -81,21 +78,21 @@ function prosseguirPerg() {
     <div class="box-perguntas">
   
        <p> Pergunta ${i+1} </p>
-        <input class="inputbox" type="text" placeholder="   Texto da pergunta" value="" />
-        <input class="inputbox" type="text" placeholder="   Cor de fundo da pergunta" value="" />
+        <input class="inputbox textopergunta" type="text" placeholder="   Texto da pergunta" value="" />
+        <input class="inputbox corpergunta" type="text" placeholder="   Cor de fundo da pergunta" value="" />
   
   
         <p> Resposta correta </p>
-        <input class="inputbox" type="text" placeholder="   Resposta correta" value="" />
-        <input class="inputbox" type="text" placeholder="   URL da imagem" value="" />
+        <input class="inputbox textocorreta" type="text" placeholder="   Resposta correta" value="" />
+        <input class="inputbox imagemcorreta" type="text" placeholder="   URL da imagem" value="" />
       
         <p> Respostas incorretas </p>
-        <input class="inputbox" type="text" placeholder="   Resposta incorreta: 1" value="" />
-        <input class="inputbox" type="text" placeholder="   URL da imagem: 1" value="" />
-        <input class="inputbox" type="text" placeholder="   Resposta incorreta: 2" value="" />
-        <input class="inputbox" type="text" placeholder="   URL da imagem: 2" value="" />
-        <input class="inputbox" type="text" placeholder="   Resposta incorreta: 3" value="" />
-        <input class="inputbox" type="text" placeholder="   URL da imagem: 3" value="" />
+        <input class="inputbox textoincorreta1" type="text" placeholder="   Resposta incorreta: 1" value="" />
+        <input class="inputbox imagemincorreta1" type="text" placeholder="   URL da imagem: 1" value="" />
+        <input class="inputbox textoincorreta2" type="text" placeholder="   Resposta incorreta: 2" value="" />
+        <input class="inputbox imagemincorreta2" type="text" placeholder="   URL da imagem: 2" value="" />
+        <input class="inputbox textoincorreta3" type="text" placeholder="   Resposta incorreta: 3" value="" />
+        <input class="inputbox imagemincorreta3" type="text" placeholder="   URL da imagem: 3" value="" />
       
         </div>
     `
@@ -103,9 +100,71 @@ function prosseguirPerg() {
 }
 
 function prosseguirNiv() {
+textopergunta = document.querySelector(".textopergunta").value;
+corpergunta = document.querySelector(".corpergunta").value;
+textocorreta = document.querySelector(".textocorreta").value;
+imagemcorreta = document.querySelector(".imagemcorreta").value;
+textoincorreta1 = document.querySelector(".textoincorreta1").value;
+imagemincorreta1 = document.querySelector(".imagemincorreta1").value;
+textoincorreta2 = document.querySelector(".textoincorreta2").value;
+imagemincorreta2 = document.querySelector(".imagemincorreta2").value;
+textoincorreta3 = document.querySelector(".textoincorreta3").value;
+imagemincorreta3 = document.querySelector(".imagemincorreta3").value;
 
-  document.querySelector(".main3").classList.add("hidden");
-  document.querySelector(".main4").classList.remove("hidden")
+
+  function testePerg(){
+    if(textopergunta.length<20){
+      alert ("Sua pergunta precisa ter no mínimo 20 caracteres.")
+    }else{
+      testeCor()
+    }
+  }
+  testePerg()
+
+  function testeCor(){
+    function isValidHex(corpergunta) {
+      if(!corpergunta || typeof corpergunta !== 'string') return false;
+  
+      // Validate hex values
+      if(corpergunta.substring(0, 1) === '#') corpergunta = corpergunta.substring(1);
+  
+      switch(corpergunta.length) {
+        case 3: return /^[0-9A-F]{3}$/i.test(corpergunta);
+        case 6: return /^[0-9A-F]{6}$/i.test(corpergunta);
+        case 8: return /^[0-9A-F]{8}$/i.test(corpergunta);
+        default: return false;
+      }
+  
+      return false;
+    } 
+    if (isValidHex(corpergunta)){
+      testeTexto()
+    } else{
+      alert ("Adicione cor hexadecimal.")
+    }
+  }
+
+    function testeTexto(){
+      if (textocorreta == "" ||textoincorreta1 == "" || textoincorreta2 ==""|| textoincorreta3==""){
+        alert ("insira texto")
+      }else{
+       testeImgInco()
+      }
+      
+    }
+
+    function testeImgInco(){
+     if(isvalidURL(imagemcorreta) && isvalidURL(imagemincorreta1) && isvalidURL(imagemincorreta2) && isvalidURL(imagemincorreta3)){
+      alert ("url ok")
+    } else{
+      alert ("urls not ok")
+    }
+    }
+ 
+
+
+
+
   
   let container = document.querySelector(".niveis");
 
@@ -124,6 +183,7 @@ function prosseguirNiv() {
     ` 
   }
 }
+
 
 function finalizarQuizz() {
   
@@ -148,4 +208,14 @@ function acessarQuizz() {
 function home() {
   document.querySelector(".main5").classList.add("hidden");
   document.querySelector(".main").classList.remove("hidden")
+}
+
+function isvalidURL(parametro) {
+  var pattern = new RegExp('^(https?:\\/\\/)?'+ 
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ 
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
+    '(\\#[-a-z\\d_]*)?$','i'); 
+  return !!pattern.test(parametro); 
 }
