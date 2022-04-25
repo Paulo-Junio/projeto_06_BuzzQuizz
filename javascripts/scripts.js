@@ -79,7 +79,7 @@ function prosseguirPerg() {
   for (let i = 0; i < qtPerg; i++) {
 
     container.innerHTML += `
-    <div class="box-perguntas">
+    <div class="box-perguntas listapergunta">
   
        <p> Pergunta ${i+1} </p>
         <input class="inputbox textopergunta" type="text" placeholder="   Texto da pergunta" value="" />
@@ -117,7 +117,7 @@ imagemincorreta2 = document.querySelector(".imagemincorreta2").value;
 textoincorreta3 = document.querySelector(".textoincorreta3").value;
 imagemincorreta3 = document.querySelector(".imagemincorreta3").value;
 
-
+function testesPerguntas(){
   function testePerg(){
     if(textopergunta.length<20){
       alert ("Sua pergunta precisa ter no mínimo 20 caracteres.")
@@ -165,10 +165,17 @@ imagemincorreta3 = document.querySelector(".imagemincorreta3").value;
         alert ("urls not ok")
       }
     }
- 
+  }
+testesPerguntas()
 
 
 
+//Testes Array 
+let perguntas = document.querySelector(".perguntas")
+for (let i=0; i<qtPerg; i++){
+  testesPerguntas()
+}
+//Testes Array
 
   
   let container = document.querySelector(".niveis");
