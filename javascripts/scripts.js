@@ -42,7 +42,7 @@ function prosseguirPerg() {
   function testeTituloQuizz() {
     if (title.length < 20 || title.length > 65) {
       alert("Seu título precisar ter entre 20-65 caracteres.");
-      container = "";
+      container2 = "";
     } else {
       testeURL();
     }
@@ -55,7 +55,7 @@ function prosseguirPerg() {
       testeqtPerg();
     } else {
       alert("Url invalida");
-      container = "";
+      container2 = "";
     }
   }
 
@@ -65,7 +65,7 @@ function prosseguirPerg() {
       testeNiveis();
     } else {
       alert("Você precisa fazer ao menos 3 perguntas.");
-      container = "";
+      container2 = "";
     }
   }
 
@@ -76,14 +76,14 @@ function prosseguirPerg() {
       document.querySelector(".main3").classList.remove("hidden");
     } else {
       alert("Você precisa fazer ao menos 2 níveis.");
-      container = "";
+      container2 = "";
     }
   }
 
   // Renderizar próxima página:
-  let container = document.querySelector(".perguntas");
+  let container2 = document.querySelector(".perguntas2");
   for (let i = 0; i < qtPerg; i++) {
-    container.innerHTML += `
+    container2.innerHTML += `
     <div class="box-perguntas listapergunta">
   
        <p> Pergunta ${i + 1} </p>
@@ -200,9 +200,9 @@ function prosseguirNiv() {
   console.log(arrayVerificada);
 
   // Renderizar próxima página:
-  let container = document.querySelector(".niveis");
+  let container2 = document.querySelector(".niveis");
   for (let i = 0; i < qtNiveis; i++) {
-    container.innerHTML += `
+    container2.innerHTML += `
     <div class="box-perguntas nivel">
     <p> Nivel ${i + 1} </p>
     <input class="inputbox titulonivel" type="text" placeholder="   Título do nível" value="" />
@@ -261,9 +261,9 @@ function finalizarQuizz() {
   // document.querySelector(".main4").classList.add("hidden");
   // document.querySelector(".main5").classList.remove("hidden");
 
-  let container = document.querySelector(".box-img");
+  let container2 = document.querySelector(".box-img");
 
-  container.innerHTML = `<img class="img-quizz"
+  container2.innerHTML = `<img class="img-quizz"
   src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
   <div class="texto-fim">
   ${title}
