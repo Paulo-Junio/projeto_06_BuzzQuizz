@@ -1,6 +1,4 @@
-body {
-    background-color: red;
-}
+
 /* CSS DO BANNER DO QUIZ */
 .topo-quiz {
     display:flex;
@@ -133,4 +131,8 @@ body {
     font-size: 21px;
     text-align: center;
     color: #818181;
+}
+
+.escondido {
+    display: none;
 }

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/stylesheet/reset.css" />
   <link rel="stylesheet" href="/stylesheet/style.css" />
+  <link rel="stylesheet" href="./stylesheet/perguntas.css">
 
   <meta name="description" content="Novo BuzzQuizz" />
   <meta name="keywords" content="Buzz, Quizz" />
@@ -16,100 +17,90 @@
 </head>
 
 <body>
-  <div class="header">
-    <div class="logo">BuzzQuizz</div>
+  <div class="listagem">
+    <div class="header">
+      <div class="logo">BuzzQuizz</div>
+    </div>
+
+    <div class="main">
+        <div class="quizzes-user">
+          <div class="naoCriou">
+            Você não criou nenhum quizz ainda :(
+          </div>
+
+          <button class="btn-criar" onclick="abrirForms()">Criar Quizz</button>
+        </div>
+        <!-- fecha quizz-user -->
+        <!--EXIBIR QUIZ DO USUARIO-->
+        <div class="quizz-user2">
+          <div class="h2">
+            <button onclick="abrirForms()"><strong>Seus Quizzes</strong></button>
+            <button onclick="abrirForms()">
+              <ion-icon class="addicon" name="add-circle"></ion-icon>
+            </button>
+          </div>
+
+          <div class="icons">
+            <div class="quizz-icon">
+              <img class="img-quizzsite"
+                src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+              <div class="texto">
+                O texto entra aqui…
+              </div>
+            </div>
+            <div class="quizz-icon">
+              <img class="img-quizzsite"
+                src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+              <div class="texto">
+                O texto entra aqui…
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--quizz-user2-->
+        <!--EXIBIR OS QUIZ DA API-->
+        
+        <div class="quizzes-site">
+            <div class="h2">
+              Todos os Quizzes
+            </div>
+
+            <div class="icons">
+              
+            </div>
+          
+          <!-- fecha quizzes-site-->
+          <div class="header">
+            <div class="logo">BuzzQuizz</div>
+          </div>
+      </div><!-- fecha main1-->
+    </div>
   </div>
-
-  <div class="main">
-    <div class="quizzes-user">
-      <div class="naoCriou">
-        Você não criou nenhum quizz ainda :(
-      </div>
-
-      <button class="btn-criar" onclick="abrirForms()">Criar Quizz</button>
+  <!-- AQUI COMECA A PAGINA DE PERGUNTASE RESPOSTAS DO QUIZ -->
+  <div class="perguntas hidden">
+    <div class="topo-quiz">
+        <span>O quão PotterHead é você?</span>
     </div>
-    <!-- fecha quizz-user -->
-    <!--EXIBIR QUIZ DO USUARIO-->
-    <div class="quizz-user2">
-      <div class="h2">
-        <button onclick="abrirForms()"><strong>Seus Quizzes</strong></button>
-        <button onclick="abrirForms()">
-          <ion-icon class="addicon" name="add-circle"></ion-icon>
-        </button>
-      </div>
+    <div class="container">
+        <div class="resultado-quiz">
+            <div class="enunciado">
+                <span>88% de acerto: Você é praticamente um aluno de Hogwarts!</span>
+            </div>
+            <div class="mensagem">
+                <img src="./Images/mensagem.png">
+                <div>
+                <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p>
+                </div>
+            </div>
+        </div>
 
-      <div class="icons">
-        <div class="quizz-icon">
-          <img class="img-quizzsite"
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
-          <div class="texto">
-            O texto entra aqui…
-          </div>
+        <div class="botoes" >
+            <button class="reiniciar" onclick="reiniciarQuiz()">Reiniciar Quizz</button>
+            <button class="home">Voltar pra home</button>
         </div>
-        <div class="quizz-icon">
-          <img class="img-quizzsite"
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
-          <div class="texto">
-            O texto entra aqui…
-          </div>
-        </div>
-      </div>
     </div>
-    <!--quizz-user2-->
-    <!--EXIBIR OS QUIZ DA API-->
-    <div class="quizzes-site">
-      <div class="h2">
-        Todos os Quizzes
-      </div>
-
-      <div class="icons">
-        <div class="quizz-icon">
-          <img class="img-quizzsite"
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
-          <div class="texto">
-            O texto entra aqui…
-          </div>
-        </div>
-        <div class="quizz-icon">
-          <img class="img-quizzsite"
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
-          <div class="texto">
-            O texto entra aqui…
-          </div>
-        </div>
-        <div class="quizz-icon">
-          <img class="img-quizzsite"
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
-          <div class="texto">
-            O texto entra aqui…
-          </div>
-        </div>
-        <div class="quizz-icon">
-          <img class="img-quizzsite"
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
-          <div class="texto">
-            O texto entra aqui…
-          </div>
-        </div>
-        <div class="quizz-icon">
-          <img class="img-quizzsite"
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
-          <div class="texto">
-            O texto entra aqui…
-          </div>
-        </div>
-        <div class="quizz-icon">
-          <img class="img-quizzsite"
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
-          <div class="texto">
-            O texto entra aqui…
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- fecha quizzes-site-->
-  </div><!-- fecha main1-->
-
+  </div>
+  <!-- AQUI TERMINA A PAGINA DE PERGUNTASE RESPOSTAS DO QUIZ -->
   <div class="main2 hidden">
     <div class="header-forms">
       <strong>Comece pelo começo</strong>
@@ -159,6 +150,8 @@
 
 
   <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./javascripts/quiz-respostas.js"></script>
   <script src="/javascripts/scripts.js"></script>
 </body>
 

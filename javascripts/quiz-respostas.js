@@ -1,7 +1,12 @@
 let ultimoClick;
-let ID_DO_QUIZZ = 1244;
+let ID_DO_QUIZZ;
 
-function buscarQuizz() {
+function buscarQuizz(quiz) {
+    let id = quiz.getAttribute("id")
+    ID_DO_QUIZZ = id;
+    document.querySelector(".listagem").classList.add("hidden")
+    document.querySelector(".perguntas").classList.remove("hidden")
+    console.log(ID_DO_QUIZZ)
     let promise= axios.get(`https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes/${ID_DO_QUIZZ}`)
     promise.then(renderizarQuizz)
 }
@@ -71,4 +76,3 @@ function reiniciarQuiz() {
     elemento.scrollIntoView();
 }
 
-buscarQuizz()

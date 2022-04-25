@@ -118,6 +118,13 @@ body {
   display: inline-block;
 }
 
+.quizz-icon img {
+  width: 340px;
+  height: 181px;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
 .texto {
   position: absolute;
   font-size: 15px;
