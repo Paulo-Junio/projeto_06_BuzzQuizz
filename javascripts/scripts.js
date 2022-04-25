@@ -181,6 +181,8 @@ function prosseguirNiv() {
         isvalidURL(imagemincorreta3)
       ) {
         alert("url ok");
+        document.querySelector(".main3").classList.add("hidden");
+        document.querySelector(".main4").classList.remove("hidden");
       } else {
         alert("Insira URL válida");
       }
@@ -231,10 +233,10 @@ function finalizarQuizz() {
   //Validar %:
   function testePorcent() {
     //merge com valor do outro script
-    if (porcentmin < 0 || porcentmin > 100) {
-      alert("Adicione uma porcentagem válida");
-    } else {
+    if (porcentmin > 0 && porcentmin < 100) {
       testeUrlNivel();
+    } else {
+      alert("Adicione uma porcentagem válida");
     }
   }
 
@@ -256,8 +258,8 @@ function finalizarQuizz() {
     }
   }
 
-  document.querySelector(".main4").classList.add("hidden");
-  document.querySelector(".main5").classList.remove("hidden");
+  // document.querySelector(".main4").classList.add("hidden");
+  // document.querySelector(".main5").classList.remove("hidden");
 
   let container = document.querySelector(".box-img");
 
