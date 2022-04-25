@@ -1,5 +1,5 @@
 let ultimoClick;
-let ID_DO_QUIZZ = 840;
+let ID_DO_QUIZZ = 1244;
 
 function buscarQuizz() {
     let promise= axios.get(`https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes/${ID_DO_QUIZZ}`)
@@ -7,30 +7,46 @@ function buscarQuizz() {
 }
 
 function renderizarQuizz(resposta) {
-    let alternativas = resposta.answers;
-    alternativas.sort(embaralharRespostas);
+    console.log(resposta)
+    let alternativas = resposta.data.questions;
+    console.log(alternativas)
     let questoes =document.querySelector(".container");
-     questoes.innerHTML += `<div class="box-respostas">
+    console.log(alternativas.length)
+    for (let i=0; i<alternativas.length; i++){
+        console.log("entrei no for")
+        let respostas= alternativas[i].answers;
+        respostas.sort(embaralharRespostas);
+        let opcoes = respostas.length;
+        questoes.innerHTML += `<div class="box-respostas">
             <div class="enunciado">
-                <span>${resposta.title}</span>
+                <span>${alternativas[i].title}</span>
             </div>
-            <div class="respostas">`
-    for (let i=0; i<alternativas.lenght; i++){
-        if (alternativas[i].isCorrectAnswer === true){
-            questoes.innerHTML += `<div class="resposta-certa opacidade" onclick="responderPergunta(this)">
-                <img src="${alternativas[i].image}" >
-                <p>${alternativas[i].text}</p>
-            </div>`
+            <div class="respostas">
+            ${renderizarRespostas(opcoes,respostas)}
+                </div>
+            </div>` 
+    }
+    
+}
+
+function renderizarRespostas (opcoes,respostas) {
+    let htmlRespostas='';
+    for (let i =0; i<opcoes; i++){
+        if (respostas[i].isCorrectAnswer === true){
+            console.log("entrei no if")
+            htmlRespostas += `<div class="resposta-certa opacidade" onclick="responderPergunta(this)">
+                <img src="${respostas[i].image}" >
+                <p>${respostas[i].text}</p>
+            </div>` 
         } else {
-            questoes.innerHTML += `<div class="resposta-errada opacidade" onclick="responderPergunta(this)">
-                <img src="${alternativas[i].image}" >
-                <p>${alternativas[i].text}</p>
-            </div>`
+            console.log("entrei no else")
+            htmlRespostas += `<div class="resposta-errada opacidade" onclick="responderPergunta(this)">
+                <img src="${respostas[i].image}" >
+                <p>${respostas[i].text}</p>
+            </div>` 
         }
     }
-    questoes.innerHTML +=`</div>
-    </div>`
-    
+    return htmlRespostas;
 }
 
 function embaralharRespostas(){

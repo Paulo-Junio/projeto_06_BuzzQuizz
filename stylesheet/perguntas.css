@@ -1,4 +1,6 @@
-
+body {
+    background-color: red;
+}
 /* CSS DO BANNER DO QUIZ */
 .topo-quiz {
     display:flex;
@@ -19,7 +21,7 @@
     flex-direction: column;
     background-color: #FFFFFF;
     width: 759px;
-    height: 676px;
+    height: auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
     margin-top: 70px;
     padding: 34px;
@@ -29,9 +31,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 }
 
-.respostas p {
+.respostas span {
     margin-bottom: 19px;
 }
 
@@ -42,23 +45,23 @@
 }
 
 .enunciado {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 688px;
     height: 138px;
     background-color: #434CA0;
     font-size: 23px;
     color: #FFFFFF;
     margin-bottom: 18px;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: auto;
     align-items: center;
     margin-bottom: 85px;
+    margin: 0 auto;
 }
 
 .respondida .opacidade {
