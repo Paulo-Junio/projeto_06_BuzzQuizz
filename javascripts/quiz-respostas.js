@@ -1,11 +1,14 @@
 let ultimoClick;
 let ID_DO_QUIZZ;
+let numeroDePerguntas;
+let perguntasRespondidas = 0;
+
 
 function buscarQuizz(quiz) {
     let id = quiz.getAttribute("id")
     ID_DO_QUIZZ = id;
     document.querySelector(".listagem").classList.add("hidden")
-    document.querySelector(".perguntas").classList.remove("hidden")
+    document.querySelector(".question").classList.remove("hidden")
     console.log(ID_DO_QUIZZ)
     let promise= axios.get(`https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes/${ID_DO_QUIZZ}`)
     promise.then(renderizarQuizz)
@@ -15,9 +18,10 @@ function renderizarQuizz(resposta) {
     console.log(resposta)
     let alternativas = resposta.data.questions;
     console.log(alternativas)
-    let questoes =document.querySelector(".container");
+    let questoes =document.querySelector(".conteudo");
     console.log(alternativas.length)
-    for (let i=0; i<alternativas.length; i++){
+    numeroDePerguntas = alternativas.length;
+    for (let i=0; i<numeroDePerguntas; i++){
         console.log("entrei no for")
         let respostas= alternativas[i].answers;
         respostas.sort(embaralharRespostas);
@@ -60,13 +64,41 @@ function embaralharRespostas(){
 
 // Esta função é para adicioar os estilos nas questões respondidas
 function responderPergunta(elemento) {
-    let divPai=elemento.parentNode
+    let divPai=elemento.parentNode;
     console.log(divPai)
+    perguntasRespondidas += 1;
+    console.log("respondidas: " + perguntasRespondidas)
+    console.log("opcoes: " + perguntasRespondidas)
+    if (perguntasRespondidas === numeroDePerguntas) {
+        finalizarQuizzes()
+    }
     if ( divPai !== ultimoClick) {
-        elemento.classList.remove("opacidade");
         elemento.parentNode.classList.add("respondida");
+        elemento.classList.remove("opacidade");
         ultimoClick = divPai
     }
+    
+}
+
+function finalizarQuizzes() {
+    console.log("ENTREI NO FINALIZAR")
+    let paginaPerguntas=document.querySelector(".conteudo");
+    paginaPerguntas.innerHTML += `<div class="resultado-quiz">
+        <div class="enunciado">
+            <span>88% de acerto: Você é praticamente um aluno de Hogwarts!</span>
+        </div>
+        <div class="mensagem">
+            <img src="./Images/mensagem.png">
+            <div>
+            <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="botoes" >
+        <button class="reiniciar" onclick="reiniciarQuiz()">Reiniciar Quizz</button>
+        <button class="home">Voltar pra home</button>
+    </div>`
 }
 
 //Esta função é para reiniciar o quiz
@@ -75,4 +107,3 @@ function reiniciarQuiz() {
     window.location.reload();
     elemento.scrollIntoView();
 }
-

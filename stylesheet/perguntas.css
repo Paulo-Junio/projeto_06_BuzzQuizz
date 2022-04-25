@@ -32,10 +32,6 @@
     align-items: center;
 }
 
-.respostas span {
-    margin-bottom: 19px;
-}
-
 .respostas img {
     width: 330px;
     height: 176px;
@@ -44,7 +40,8 @@
 
 .enunciado {
     width: 688px;
-    height: 138px;
+    height: auto;
+    padding: 30px;
     background-color: #434CA0;
     font-size: 23px;
     color: #FFFFFF;
@@ -53,7 +50,7 @@
     text-align: center;
 }
 
-.container {
+.conteudo {
     display: flex;
     flex-direction: column;
     width: auto;
@@ -73,6 +70,12 @@
 .respondida .resposta-certa {
     color:#009C22;
     cursor: pointer;
+}
+
+.resposta-certa, .resposta-errada p {
+    margin-bottom: 19px;
+    text-align: left;
+    word-wrap: break-word;
 }
 
 /* CSS DA FINALIZAÇÃO DO QUIZ */
