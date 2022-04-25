@@ -2,13 +2,14 @@ let ultimoClick;
 let ID_DO_QUIZZ;
 let numeroDePerguntas;
 let perguntasRespondidas = 0;
+let porcentagemDeAcerto=0;
 
 
 function buscarQuizz(quiz) {
     let id = quiz.getAttribute("id")
     ID_DO_QUIZZ = id;
     document.querySelector(".listagem").classList.add("hidden")
-    document.querySelector(".question").classList.remove("hidden")
+    document.querySelector(".perguntas").classList.remove("hidden")
     console.log(ID_DO_QUIZZ)
     let promise= axios.get(`https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes/${ID_DO_QUIZZ}`)
     promise.then(renderizarQuizz)
@@ -18,7 +19,7 @@ function renderizarQuizz(resposta) {
     console.log(resposta)
     let alternativas = resposta.data.questions;
     console.log(alternativas)
-    let questoes =document.querySelector(".conteudo");
+    let questoes =document.querySelector(".container");
     console.log(alternativas.length)
     numeroDePerguntas = alternativas.length;
     for (let i=0; i<numeroDePerguntas; i++){
@@ -64,6 +65,12 @@ function embaralharRespostas(){
 
 // Esta função é para adicioar os estilos nas questões respondidas
 function responderPergunta(elemento) {
+    let conferirResposta = elemento.classList.contains("resposta-certa");
+    if (conferirResposta == true){
+        let pontos = (100/numeroDePerguntas);
+        porcentagemDeAcerto += pontos;
+    }
+    console.log("conferirResposta: " + conferirResposta)
     let divPai=elemento.parentNode;
     console.log(divPai)
     perguntasRespondidas += 1;
@@ -82,10 +89,11 @@ function responderPergunta(elemento) {
 
 function finalizarQuizzes() {
     console.log("ENTREI NO FINALIZAR")
-    let paginaPerguntas=document.querySelector(".conteudo");
+    let pontos = Math.ceil(porcentagemDeAcerto);
+    let paginaPerguntas=document.querySelector(".container");
     paginaPerguntas.innerHTML += `<div class="resultado-quiz">
         <div class="enunciado">
-            <span>88% de acerto: Você é praticamente um aluno de Hogwarts!</span>
+            <span>${pontos}% de acerto: Você é praticamente um aluno de Hogwarts!</span>
         </div>
         <div class="mensagem">
             <img src="./Images/mensagem.png">
