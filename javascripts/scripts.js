@@ -38,6 +38,7 @@ function prosseguirPerg() {
   function testeTitulo(){
     if(title.length<20 ||title.length>65){
       alert ("Seu título precisar ter entre 20-65 caracteres.")
+      container = ""
     }else{
     testeURL()
     }
@@ -50,6 +51,7 @@ function prosseguirPerg() {
       testeqtPerg()
     }else{
       alert ("Url invalida")
+      container = ""
     }
   }
 
@@ -58,6 +60,7 @@ function prosseguirPerg() {
       testeNiveis()
     }else{
       alert ("Você precisa fazer ao menos 3 perguntas.")
+      container = ""
     }
   }
 
@@ -67,6 +70,7 @@ function prosseguirPerg() {
       document.querySelector(".main3").classList.remove("hidden")
     }else{
       alert ("Você precisa fazer ao menos 2 níveis.")
+      container = ""
     }
   }
 
@@ -78,21 +82,21 @@ function prosseguirPerg() {
     <div class="box-perguntas">
   
        <p> Pergunta ${i+1} </p>
-        <input class="inputbox textopergunta" type="text" placeholder="   Texto da pergunta" value="" />
-        <input class="inputbox corpergunta" type="text" placeholder="   Cor de fundo da pergunta" value="" />
+        <input class="inputbox textopergunta${i}" type="text" placeholder="   Texto da pergunta" value="" />
+        <input class="inputbox corpergunta${i}" type="text" placeholder="   Cor de fundo da pergunta" value="" />
   
   
         <p> Resposta correta </p>
-        <input class="inputbox textocorreta" type="text" placeholder="   Resposta correta" value="" />
-        <input class="inputbox imagemcorreta" type="text" placeholder="   URL da imagem" value="" />
+        <input class="inputbox textocorreta${i}" type="text" placeholder="   Resposta correta" value="" />
+        <input class="inputbox imagemcorreta${i}" type="text" placeholder="   URL da imagem" value="" />
       
         <p> Respostas incorretas </p>
-        <input class="inputbox textoincorreta1" type="text" placeholder="   Resposta incorreta: 1" value="" />
-        <input class="inputbox imagemincorreta1" type="text" placeholder="   URL da imagem: 1" value="" />
-        <input class="inputbox textoincorreta2" type="text" placeholder="   Resposta incorreta: 2" value="" />
-        <input class="inputbox imagemincorreta2" type="text" placeholder="   URL da imagem: 2" value="" />
-        <input class="inputbox textoincorreta3" type="text" placeholder="   Resposta incorreta: 3" value="" />
-        <input class="inputbox imagemincorreta3" type="text" placeholder="   URL da imagem: 3" value="" />
+        <input class="inputbox textoincorreta1${i}" type="text" placeholder="   Resposta incorreta: 1" value="" />
+        <input class="inputbox imagemincorreta1${i}" type="text" placeholder="   URL da imagem: 1" value="" />
+        <input class="inputbox textoincorreta2${i}" type="text" placeholder="   Resposta incorreta: 2" value="" />
+        <input class="inputbox imagemincorreta2${i}" type="text" placeholder="   URL da imagem: 2" value="" />
+        <input class="inputbox textoincorreta3${i}" type="text" placeholder="   Resposta incorreta: 3" value="" />
+        <input class="inputbox imagemincorreta3${i}" type="text" placeholder="   URL da imagem: 3" value="" />
       
         </div>
     `
@@ -100,6 +104,8 @@ function prosseguirPerg() {
 }
 
 function prosseguirNiv() {
+
+ 
 textopergunta = document.querySelector(".textopergunta").value;
 corpergunta = document.querySelector(".corpergunta").value;
 textocorreta = document.querySelector(".textocorreta").value;
@@ -150,15 +156,14 @@ imagemincorreta3 = document.querySelector(".imagemincorreta3").value;
       }else{
        testeImgInco()
       }
-      
     }
 
     function testeImgInco(){
-     if(isvalidURL(imagemcorreta) && isvalidURL(imagemincorreta1) && isvalidURL(imagemincorreta2) && isvalidURL(imagemincorreta3)){
-      alert ("url ok")
-    } else{
-      alert ("urls not ok")
-    }
+      if(isvalidURL(imagemcorreta) && isvalidURL(imagemincorreta1) && isvalidURL(imagemincorreta2) && isvalidURL(imagemincorreta3)){
+        alert ("url ok")
+      } else{
+        alert ("urls not ok")
+      }
     }
  
 
