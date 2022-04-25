@@ -82,21 +82,21 @@ function prosseguirPerg() {
     <div class="box-perguntas">
   
        <p> Pergunta ${i+1} </p>
-        <input class="inputbox textopergunta${i}" type="text" placeholder="   Texto da pergunta" value="" />
-        <input class="inputbox corpergunta${i}" type="text" placeholder="   Cor de fundo da pergunta" value="" />
+        <input class="inputbox textopergunta" type="text" placeholder="   Texto da pergunta" value="" />
+        <input class="inputbox corpergunta" type="text" placeholder="   Cor de fundo da pergunta" value="" />
   
   
         <p> Resposta correta </p>
-        <input class="inputbox textocorreta${i}" type="text" placeholder="   Resposta correta" value="" />
-        <input class="inputbox imagemcorreta${i}" type="text" placeholder="   URL da imagem" value="" />
+        <input class="inputbox textocorreta" type="text" placeholder="   Resposta correta" value="" />
+        <input class="inputbox imagemcorreta" type="text" placeholder="   URL da imagem" value="" />
       
         <p> Respostas incorretas </p>
-        <input class="inputbox textoincorreta1${i}" type="text" placeholder="   Resposta incorreta: 1" value="" />
-        <input class="inputbox imagemincorreta1${i}" type="text" placeholder="   URL da imagem: 1" value="" />
-        <input class="inputbox textoincorreta2${i}" type="text" placeholder="   Resposta incorreta: 2" value="" />
-        <input class="inputbox imagemincorreta2${i}" type="text" placeholder="   URL da imagem: 2" value="" />
-        <input class="inputbox textoincorreta3${i}" type="text" placeholder="   Resposta incorreta: 3" value="" />
-        <input class="inputbox imagemincorreta3${i}" type="text" placeholder="   URL da imagem: 3" value="" />
+        <input class="inputbox textoincorreta1" type="text" placeholder="   Resposta incorreta: 1" value="" />
+        <input class="inputbox imagemincorreta1" type="text" placeholder="   URL da imagem: 1" value="" />
+        <input class="inputbox textoincorreta2" type="text" placeholder="   Resposta incorreta: 2" value="" />
+        <input class="inputbox imagemincorreta2" type="text" placeholder="   URL da imagem: 2" value="" />
+        <input class="inputbox textoincorreta3" type="text" placeholder="   Resposta incorreta: 3" value="" />
+        <input class="inputbox imagemincorreta3" type="text" placeholder="   URL da imagem: 3" value="" />
       
         </div>
     `
@@ -177,13 +177,11 @@ imagemincorreta3 = document.querySelector(".imagemincorreta3").value;
 
     container.innerHTML += `
     <div class="box-perguntas nivel">
-
     <p> Nivel ${i+1} </p>
     <input class="inputbox" type="text" placeholder="   Título do nível" value="" />
     <input class="inputbox" type="text" placeholder="   % de acerto mínima" value="" />
     <input class="inputbox" type="text" placeholder="   URL da imagem do nível" value="" />
     <input class="inputbox" type="text" placeholder="   Descrição do nível" value="" />
-
     </div>
     ` 
   }
