@@ -2,8 +2,16 @@ let title;
 let image;
 let qtPerg;
 let qtNiveis;
-let re = /^[a-z](?:[-a-z0-9\+\.])*:(?:\/\/(?:(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=:])*@)?(?:\[(?:(?:(?:[0-9a-f]{1,4}:){6}(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3})|::(?:[0-9a-f]{1,4}:){5}(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3})|(?:[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){4}(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3})|(?:[0-9a-f]{1,4}:[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){3}(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3})|(?:(?:[0-9a-f]{1,4}:){0,2}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){2}(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3})|(?:(?:[0-9a-f]{1,4}:){0,3}[0-9a-f]{1,4})?::[0-9a-f]{1,4}:(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3})|(?:(?:[0-9a-f]{1,4}:){0,4}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3})|(?:(?:[0-9a-f]{1,4}:){0,5}[0-9a-f]{1,4})?::[0-9a-f]{1,4}|(?:(?:[0-9a-f]{1,4}:){0,6}[0-9a-f]{1,4})?::)|v[0-9a-f]+[-a-z0-9\._~!\$&'\(\)\*\+,;=:]+)\]|(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3}|(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=@])*)(?::[0-9]*)?(?:\/(?:(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=:@]))*)*|\/(?:(?:(?:(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=:@]))+)(?:\/(?:(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=:@]))*)*)?|(?:(?:(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=:@]))+)(?:\/(?:(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=:@]))*)*|(?!(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=:@])))(?:\?(?:(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=:@])|[\x{E000}-\x{F8FF}\x{F0000}-\x{FFFFD}|\x{100000}-\x{10FFFD}\/\?])*)?(?:\#(?:(?:%[0-9a-f][0-9a-f]|[-a-z0-9\._~\x{A0}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFEF}\x{10000}-\x{1FFFD}\x{20000}-\x{2FFFD}\x{30000}-\x{3FFFD}\x{40000}-\x{4FFFD}\x{50000}-\x{5FFFD}\x{60000}-\x{6FFFD}\x{70000}-\x{7FFFD}\x{80000}-\x{8FFFD}\x{90000}-\x{9FFFD}\x{A0000}-\x{AFFFD}\x{B0000}-\x{BFFFD}\x{C0000}-\x{CFFFD}\x{D0000}-\x{DFFFD}\x{E1000}-\x{EFFFD}!\$&'\(\)\*\+,;=:@])|[\/\?])*)?$/i
-;
+let textopergunta;
+let corpergunta;
+let textocorreta;
+let imagemcorreta;
+let textoincorreta1;
+let imagemincorreta1;
+let textoincorreta2;
+let imagemincorreta2;
+let textoincorreta3;
+let imagemincorreta3;
 
 
 //FORMULÁRIO
@@ -13,10 +21,10 @@ function abrirForms() {
   document.querySelector(".main2").classList.remove("hidden")
   let boxgeral = document.querySelector(".box-info-geral");
   boxgeral.innerHTML = `
-<input class="inputbox titulo" type="text" placeholder="   Título do seu quizz" value="" />
-<input class="inputbox url" type="text" placeholder="   URL da imagem do seu quizz" value="" />
-<input class="inputbox qtPerg" type="text" placeholder=" Quantidade de perguntas do quizz" value="" />
-<input class="inputbox qtNiveis" type="text" placeholder="   Quantidade de níveis do quizz" value="" />
+  <input class="inputbox titulo" type="text" placeholder="   Título do seu quizz" value="" />
+  <input class="inputbox url" type="text" placeholder="   URL da imagem do seu quizz" value="" />
+  <input class="inputbox qtPerg" type="text" placeholder=" Quantidade de perguntas do quizz" value="" />
+  <input class="inputbox qtNiveis" type="text" placeholder="   Quantidade de níveis do quizz" value="" />
   `
 }
 
@@ -30,18 +38,20 @@ function prosseguirPerg() {
   function testeTitulo(){
     if(title.length<20 ||title.length>65){
       alert ("Seu título precisar ter entre 20-65 caracteres.")
+      container = ""
     }else{
     testeURL()
     }
   }
   testeTitulo()
 
-  function testeURL(){
-    let ok = re.exec(image); // Booleano
-    if (ok!==true){
-      alert ("Coloque uma URL válida.")
+
+  function testeURL(){       
+    if (isvalidURL(image)){
+      testeqtPerg()
     }else{
-    testeqtPerg()
+      alert ("Url invalida")
+      container = ""
     }
   }
 
@@ -50,6 +60,7 @@ function prosseguirPerg() {
       testeNiveis()
     }else{
       alert ("Você precisa fazer ao menos 3 perguntas.")
+      container = ""
     }
   }
 
@@ -59,14 +70,9 @@ function prosseguirPerg() {
       document.querySelector(".main3").classList.remove("hidden")
     }else{
       alert ("Você precisa fazer ao menos 2 níveis.")
+      container = ""
     }
   }
-
- 
-
-
-  //if (image etc etc)
-  
 
   let container = document.querySelector(".perguntas");
 
@@ -76,21 +82,21 @@ function prosseguirPerg() {
     <div class="box-perguntas">
   
        <p> Pergunta ${i+1} </p>
-        <input class="inputbox" type="text" placeholder="   Texto da pergunta" value="" />
-        <input class="inputbox" type="text" placeholder="   Cor de fundo da pergunta" value="" />
+        <input class="inputbox textopergunta${i}" type="text" placeholder="   Texto da pergunta" value="" />
+        <input class="inputbox corpergunta${i}" type="text" placeholder="   Cor de fundo da pergunta" value="" />
   
   
         <p> Resposta correta </p>
-        <input class="inputbox" type="text" placeholder="   Resposta correta" value="" />
-        <input class="inputbox" type="text" placeholder="   URL da imagem" value="" />
+        <input class="inputbox textocorreta${i}" type="text" placeholder="   Resposta correta" value="" />
+        <input class="inputbox imagemcorreta${i}" type="text" placeholder="   URL da imagem" value="" />
       
         <p> Respostas incorretas </p>
-        <input class="inputbox" type="text" placeholder="   Resposta incorreta: 1" value="" />
-        <input class="inputbox" type="text" placeholder="   URL da imagem: 1" value="" />
-        <input class="inputbox" type="text" placeholder="   Resposta incorreta: 2" value="" />
-        <input class="inputbox" type="text" placeholder="   URL da imagem: 2" value="" />
-        <input class="inputbox" type="text" placeholder="   Resposta incorreta: 3" value="" />
-        <input class="inputbox" type="text" placeholder="   URL da imagem: 3" value="" />
+        <input class="inputbox textoincorreta1${i}" type="text" placeholder="   Resposta incorreta: 1" value="" />
+        <input class="inputbox imagemincorreta1${i}" type="text" placeholder="   URL da imagem: 1" value="" />
+        <input class="inputbox textoincorreta2${i}" type="text" placeholder="   Resposta incorreta: 2" value="" />
+        <input class="inputbox imagemincorreta2${i}" type="text" placeholder="   URL da imagem: 2" value="" />
+        <input class="inputbox textoincorreta3${i}" type="text" placeholder="   Resposta incorreta: 3" value="" />
+        <input class="inputbox imagemincorreta3${i}" type="text" placeholder="   URL da imagem: 3" value="" />
       
         </div>
     `
@@ -99,8 +105,71 @@ function prosseguirPerg() {
 
 function prosseguirNiv() {
 
-  document.querySelector(".main3").classList.add("hidden");
-  document.querySelector(".main4").classList.remove("hidden")
+ 
+textopergunta = document.querySelector(".textopergunta").value;
+corpergunta = document.querySelector(".corpergunta").value;
+textocorreta = document.querySelector(".textocorreta").value;
+imagemcorreta = document.querySelector(".imagemcorreta").value;
+textoincorreta1 = document.querySelector(".textoincorreta1").value;
+imagemincorreta1 = document.querySelector(".imagemincorreta1").value;
+textoincorreta2 = document.querySelector(".textoincorreta2").value;
+imagemincorreta2 = document.querySelector(".imagemincorreta2").value;
+textoincorreta3 = document.querySelector(".textoincorreta3").value;
+imagemincorreta3 = document.querySelector(".imagemincorreta3").value;
+
+
+  function testePerg(){
+    if(textopergunta.length<20){
+      alert ("Sua pergunta precisa ter no mínimo 20 caracteres.")
+    }else{
+      testeCor()
+    }
+  }
+  testePerg()
+
+  function testeCor(){
+    function isValidHex(corpergunta) {
+      if(!corpergunta || typeof corpergunta !== 'string') return false;
+  
+      // Validate hex values
+      if(corpergunta.substring(0, 1) === '#') corpergunta = corpergunta.substring(1);
+  
+      switch(corpergunta.length) {
+        case 3: return /^[0-9A-F]{3}$/i.test(corpergunta);
+        case 6: return /^[0-9A-F]{6}$/i.test(corpergunta);
+        case 8: return /^[0-9A-F]{8}$/i.test(corpergunta);
+        default: return false;
+      }
+  
+      return false;
+    } 
+    if (isValidHex(corpergunta)){
+      testeTexto()
+    } else{
+      alert ("Adicione cor hexadecimal.")
+    }
+  }
+
+    function testeTexto(){
+      if (textocorreta == "" ||textoincorreta1 == "" || textoincorreta2 ==""|| textoincorreta3==""){
+        alert ("insira texto")
+      }else{
+       testeImgInco()
+      }
+    }
+
+    function testeImgInco(){
+      if(isvalidURL(imagemcorreta) && isvalidURL(imagemincorreta1) && isvalidURL(imagemincorreta2) && isvalidURL(imagemincorreta3)){
+        alert ("url ok")
+      } else{
+        alert ("urls not ok")
+      }
+    }
+ 
+
+
+
+
   
   let container = document.querySelector(".niveis");
 
@@ -119,6 +188,7 @@ function prosseguirNiv() {
     ` 
   }
 }
+
 
 function finalizarQuizz() {
   
@@ -143,4 +213,14 @@ function acessarQuizz() {
 function home() {
   document.querySelector(".main5").classList.add("hidden");
   document.querySelector(".main").classList.remove("hidden")
+}
+
+function isvalidURL(parametro) {
+  var pattern = new RegExp('^(https?:\\/\\/)?'+ 
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ 
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
+    '(\\#[-a-z\\d_]*)?$','i'); 
+  return !!pattern.test(parametro); 
 }
