@@ -303,12 +303,8 @@ function buscarAPI() {
 }
 
 function renderizarLista(resposta) {
-  console.log('TO NA LISTA')
-  console.log(resposta)
   let quizzes = resposta.data;
-  console.log(quizzes)
   let lista = document.querySelector(".quizzes-site .icons");
-  console.log(quizzes.length)
   for (let i=0; i<quizzes.length; i++){
       lista.innerHTML += `<div id ="${quizzes[i].id}" class="quizz-icon" onclick="buscarQuizz(this)">
       <img src="${quizzes[i].image}"/>
