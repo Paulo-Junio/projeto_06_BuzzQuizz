@@ -368,6 +368,8 @@ function finalizarCriacao(resposta) {
 }
 
 function acessarQuizz() {
+  document.querySelector(".main5").classList.add("hidden")
+  document.querySelector(".container").classList.remove("hidden")
   buscarQuizz(idGerado)
 }
 
