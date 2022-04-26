@@ -1,5 +1,5 @@
-let title;
-let image;
+let titles="";
+let images="";
 let qtPerg;
 let qtNiveis;
 let textopergunta;
@@ -20,7 +20,11 @@ let cont=0;
 let testeIniciado=1;
 let idDoNivel;
 let quizzesCriado=[];
-
+let questoesUsuario=[]
+let niveisUsuaro=[]
+let quizUsuario= {title:'', image:'', questions:questoesUsuario,levels:niveisUsuaro}
+let numero= 1;
+let idGerado;
 
 //FORMULÁRIO
 
@@ -67,24 +71,26 @@ function renderizarBoxPerguntas() {
 }
 
 function prosseguirPerg() {
-  title = document.querySelector(".titulo").value;
-  image = document.querySelector(".url").value;
+  titles = document.querySelector(".titulo").value;
+  images = document.querySelector(".url").value;
   qtNiveis = document.querySelector(".qtNiveis").value;
   testeTituloQuizz();
 }
   //Validar título:
 function testeTituloQuizz() {
-  if (title.length < 20 || title.length > 65) {
+  if (titles.length < 20 || titles.length > 65) {
     alert("Seu título precisar ter entre 20-65 caracteres.");
     container2 = "";
   } else {
+    quizUsuario.title=titles;
     testeURL();
   }
 }
 
 //Validar URL:
 function testeURL() {
-  if (isvalidURL(image)) {
+  if (isvalidURL(images)) {
+    quizUsuario.image=images;
     testeqtPerg();
   } else {
     alert("Url invalida");
@@ -207,7 +213,7 @@ function prosseguirNiv(idPerguntas) {
           isvalidURL(imagemincorreta3)
         ) {
           cont +=1
-          validarFomularioDePerguntas()
+          adicionarEmQuestions()
         
         } else {
           alert("Insira URL válida");
@@ -221,6 +227,30 @@ function prosseguirNiv(idPerguntas) {
   }
 }
 
+function adicionarEmQuestions(){
+  let objeto= {
+    title: textopergunta,
+    color: corpergunta,
+    answers: [{text:textoincorreta1,
+      image:imagemincorreta1,
+      isCorrectAnswer:false
+    },
+      {text: textocorreta,
+        image:imagemcorreta,
+        isCorrectAnswer:true},
+      {text: textoincorreta1,
+        image:textoincorreta2,
+        isCorrectAnswer:false
+      },
+      {text: textoincorreta3,
+        image:imagemincorreta3,
+        isCorrectAnswer:false
+      }
+    ]
+  }
+  questoesUsuario.push(objeto)
+  validarFomularioDePerguntas()
+}
 //ESTA FUNCAO RENDERIZA O FORMULARIO DE NIVEL DA PROXIMA PAGINA
 function renderizarNiveis() {
   let container2 = document.querySelector(".niveis");
@@ -294,29 +324,51 @@ function finalizarQuizz(idNivel) {
     } 
     else {
       cont +=1
-      validarNiveis()
+      adicionarEmLevels()
     } 
     if (idDoNivel === (qtNiveis-1)  && descrinivel!=="") {
       cont=0
-      finalizarCriacao();
+      enviarQuizDoUsuario();
     }
   }
 }
 
-function finalizarCriacao() {
+function adicionarEmLevels() {
+  let objeto= {
+    title: tituloNivel,
+    image: urlnivel,
+    text:descrinivel,
+    minValue:porcentmin
+  }
+  niveisUsuaro.push(objeto)
+  validarNiveis()
+}
+
+function enviarQuizDoUsuario() {
+  console.log("VOU MANDAR O QUIZ EIIMMM")
+  if (numero ===1){
+    let enviarQuiz = axios.post("https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes",quizUsuario)
+    enviarQuiz.then(finalizarCriacao)
+    numero=2;
+  }
+}
+
+function finalizarCriacao(resposta) {
+  idGerado = resposta.data.id;
+  quizzesCriado.push(idGerado)
   document.querySelector(".main4").classList.add("hidden");
   document.querySelector(".main5").classList.remove("hidden");
   let container2 = document.querySelector(".box-img");
   container2.innerHTML = `<img class="img-quizz"
-  src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+  src="${images}"/>
   <div class="texto-fim">
-  ${title}
+  ${titles}
   </div>
   `;
 }
 
 function acessarQuizz() {
-  alert("leva ao link do quizz?");
+  buscarQuizz(idGerado)
 }
 
 function home() {
