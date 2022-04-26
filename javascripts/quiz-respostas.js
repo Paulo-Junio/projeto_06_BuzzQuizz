@@ -4,6 +4,7 @@ let numeroDePerguntas;
 let perguntasRespondidas = 0;
 let porcentagemDeAcerto=0;
 let dados;
+let darScroll;
 
 
 function buscarQuizz(quiz) {
@@ -37,7 +38,7 @@ function renderizarQuizz(resposta) {
             <div class="enunciado" style="background-color:${corDeFundo};">
                 <span>${alternativas[i].title}</span>
             </div>
-            <div class="respostas">
+            <div class="respostas" id=${i}>
             ${renderizarRespostas(opcoes,respostas)}
                 </div>
             </div>` 
@@ -75,6 +76,7 @@ function responderPergunta(elemento) {
         porcentagemDeAcerto += pontos;
     }
     let divPai=elemento.parentNode;
+    darScroll=divPai;
     perguntasRespondidas += 1;
     let verificarRespondida = divPai.classList.contains("respondida")
     if (!verificarRespondida == true) {
@@ -89,6 +91,13 @@ function responderPergunta(elemento) {
             setTimeout(scroll,2000)
         }
     }
+}
+
+function scroll() {
+    let perRespondida= Number(darScroll.getAttribute("id"));
+    let elemento = document.getElementById(perRespondida+1);
+    elemento.scrollIntoView()
+
 }
 
 function scrollFinal() {
