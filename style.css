@@ -12,7 +12,7 @@ body {
 
 .header {
   position: fixed;
-  height: 10%;
+  height: 69px;
   width: 100%;
   z-index: 3;
   top: 0;
@@ -24,10 +24,10 @@ body {
 .logo {
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: fixed;
-  height: 10%;
-  width: 100%;
+  margin-left: 550px;
+  margin-top: 13px;
+  height: 46px;
+  width: 176px;
   font-size: 32px;
   font-family: "Roboto";
   font-style: normal;
@@ -41,8 +41,8 @@ body {
 }
 
 .quizzes-user {
-  width: 80%;
-  min-height: 30%;
+  width: 1051px;
+  height: 181px;
   margin-top: 15%;
   margin-left: 10%;
   background: #fafafa;
@@ -55,7 +55,8 @@ body {
 }
 
 .naoCriou {
-  width: 27%;
+  width: 250px;
+  height: 107px;
   text-align: center;
   font-style: normal;
   font-weight: 400;
@@ -67,8 +68,8 @@ body {
 }
 
 .btn-criar {
-  width: 22%;
-  height: 20%;
+  width: 136px;
+  height: 40px;
   background: #fafafa;
   border: 1px dashed #ec362d;
   border-radius: 50px;
@@ -93,24 +94,31 @@ body {
 }
 
 .h2 {
-  width: 50%;
-  height: 5%;
+  width: 200px;
+  height: 50px;
   line-height: 5%;
   font-weight: 700;
-  font-size: 90%;
+  font-size: 20px;
   margin-bottom: 2%;
   display: flex;
-  align-items: center;
 }
-
+.h2 button {
+  width: 200x;
+  height: 50px;
+  line-height: 5%;
+  font-weight: 700;
+  font-size: 20px;
+}
 .icons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .quizz-icon {
-  width: 32%;
-  height: 25%;
+  width: 340px;
+  height: 181px;
+  padding-left: 10px;
   padding-right: 1%;
   padding-left: 1%;
   margin-top: 1%;
@@ -121,17 +129,26 @@ body {
 .quizz-icon img {
   width: 340px;
   height: 181px;
-  border-radius: 5px; 
+  border-radius: 5px;
   cursor: pointer;
-  background : linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url(https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032) no-repeat center / cover;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.5) 65.62%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url(https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032)
+      no-repeat center / cover;
 }
 
 .texto {
+  width: 301px;
+  height: 54px;
   position: absolute;
-  font-size: 15px;
+  font-size: 19px;
   color: black;
   z-index: 2;
-  bottom: 4%;
+  bottom: 2%;
   left: 5%;
   font-weight: 500;
   line-height: 22px;
@@ -155,8 +172,6 @@ body {
   padding-left: 2%;
 }
 
-
-
 img {
   object-fit: cover;
   width: 100%;
@@ -167,7 +182,6 @@ button {
   cursor: pointer;
   border: inherit;
   background-color: inherit;
-  
 }
 
 strong {
@@ -223,7 +237,7 @@ strong {
 .btn-prosseguir {
   position: fixed;
   width: 26%;
-  padding:1%;
+  padding: 1%;
   min-height: 6%;
   top: 68%;
   border-radius: 15px;
@@ -241,12 +255,12 @@ strong {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top:10%;
+  margin-top: 10%;
   margin-bottom: 1%;
 }
 
-.container2{
-  width:58%;
+.container2 {
+  width: 58%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -256,7 +270,7 @@ strong {
 
 .box-perguntas {
   width: 58%;
-  padding:1%;
+  padding: 1%;
   margin-top: 3%;
   background: #ffffff;
   border-radius: 4px;
@@ -265,9 +279,8 @@ strong {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  z-index:2;
+  z-index: 2;
 }
-
 
 /*NIVEIS*/
 .main4 {
@@ -275,13 +288,13 @@ strong {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top:12%;
+  margin-top: 12%;
 }
 
-.nivel{
+.nivel {
   margin: 2% 0 2% 0;
-  }
-  
+}
+
 /*QUIZZ ESTÁ PRONTO*/
 
 .main5 {
@@ -289,14 +302,12 @@ strong {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top:12%;
+  margin-top: 12%;
 }
 
-
-
 .box-img {
-  height:23%;
-  width:33%;
+  height: 23%;
+  width: 33%;
   padding-right: 1%;
   padding-left: 1%;
   margin-top: 5%;
@@ -317,9 +328,9 @@ strong {
   text-shadow: 1px 1px 2px black;
 }
 
-.home{
-margin-top: 1%;
-color: #818181;
+.home {
+  margin-top: 1%;
+  color: #818181;
 }
 
 /* GERAL */
@@ -333,10 +344,62 @@ p {
   display: none;
 }
 
-.static{
+.static {
   position: static;
 }
 
-.behind{
-  z-index:0;
+.behind {
+  z-index: 0;
+}
+
+@media (max-width: 1100px) {
+  .main {
+    width: 100%;
+    display: flex;
+  }
+
+  .header {
+    max-width: 100%;
+    height: 10%;
+  }
+  .logo {
+    font-size: 150%;
+    margin-left: 50%;
+  }
+  .body {
+    max-width: 100%;
+  }
+  .icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .quizz-icon {
+    width: 100%;
+    height: 30%;
+  }
+  .quizz-icon img {
+    width: 100%;
+    height: 30%;
+  }
+
+  .h2 {
+    width: 90%;
+    height: 40%;
+    line-height: 50%;
+    font-weight: 700;
+    font-size: 150%;
+  }
+  .h2 button {
+    font-size: 100%;
+  }
+  .quizzes-user {
+    width: 100%;
+    height: 90%;
+    margin-top: 15%;
+  }
+  .naoCriou {
+    width: 100%;
+    height: 50%;
+  }
 }

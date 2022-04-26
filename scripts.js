@@ -369,7 +369,7 @@ function finalizarCriacao(resposta) {
 
 function acessarQuizz() {
   document.querySelector(".main5").classList.add("hidden")
-  document.querySelector(".container").classList.remove("hidden")
+  document.querySelector(".perguntas").classList.remove("hidden")
   buscarQuizz(idGerado)
 }
 

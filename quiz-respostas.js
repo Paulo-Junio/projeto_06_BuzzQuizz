@@ -10,8 +10,10 @@ let darScroll;
 function buscarQuizz(quiz) {
     console.log(perguntasRespondidas)
     if (ID_DO_QUIZZ === undefined){
+        console.log("entreipra pegar o id")
         let id = quiz.getAttribute("id")
     ID_DO_QUIZZ = id;
+    console.log(ID_DO_QUIZZ)
     }
     document.querySelector(".listagem").classList.add("hidden")
     document.querySelector(".perguntas").classList.remove("hidden")
@@ -31,6 +33,7 @@ function renderizarQuizz(resposta) {
             <span>${resposta.data.title}</span>
         </div>`
     for (let i=0; i<numeroDePerguntas; i++){
+        console.log("to renderizando")
         let corDeFundo = alternativas[i].color;
         let respostas= alternativas[i].answers;
         respostas.sort(embaralharRespostas);
