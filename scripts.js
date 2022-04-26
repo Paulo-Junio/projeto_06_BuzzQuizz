@@ -19,6 +19,7 @@ let descrinivel;
 let cont=0;
 let testeIniciado=1;
 let idDoNivel;
+let quizzesCriado=[];
 
 
 //FORMULÁRIO
@@ -345,7 +346,58 @@ function buscarAPI() {
 }
 
 function renderizarLista(resposta) {
+  let topoPagina = document.querySelector(".main");
+  if (quizzesCriado.length ===0) {
+    topoPagina.innerHTML += `
+    <div class="quizzes-user">
+      <div class="naoCriou">
+        Você não criou nenhum quizz ainda :(
+      </div>
+
+      <button class="btn-criar" onclick="abrirForms()">Criar Quizz</button>
+    </div>
+    <!-- fecha quizz-user -->`
+  }
+  else if (quizzesCriado.length !== 0) {
+    topoPagina.innerHTML += `<!--EXIBIR QUIZ DO USUARIO-->
+    <div class="quizz-user2">
+      <div class="h2">
+        <button onclick="abrirForms()"><strong>Seus Quizzes</strong></button>
+        <button onclick="abrirForms()">
+          <ion-icon class="addicon" name="add-circle"></ion-icon>
+        </button>
+      </div>
+
+      <div class="icons">
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+        <div class="quizz-icon">
+          <img class="img-quizzsite"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
+          <div class="texto">
+            O texto entra aqui…
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--quizz-user2-->
+    <!--EXIBIR OS QUIZ DA API-->`
+  }
   let quizzes = resposta.data;
+    topoPagina.innerHTML += `<div class="quizzes-site">
+    <div class="h2">
+      Todos os Quizzes
+    </div>
+
+    <div class="icons">
+
+    </div>
+  </div>`
   let lista = document.querySelector(".quizzes-site .icons");
   for (let i=0; i<quizzes.length; i++){
       lista.innerHTML += `<div id ="${quizzes[i].id}" class="quizz-icon" onclick="buscarQuizz(this)">
