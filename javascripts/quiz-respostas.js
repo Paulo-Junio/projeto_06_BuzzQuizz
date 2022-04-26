@@ -3,32 +3,38 @@ let ID_DO_QUIZZ;
 let numeroDePerguntas;
 let perguntasRespondidas = 0;
 let porcentagemDeAcerto=0;
+let dados;
 
 
 function buscarQuizz(quiz) {
-    let id = quiz.getAttribute("id")
+    if (ID_DO_QUIZZ === undefined){
+        let id = quiz.getAttribute("id")
     ID_DO_QUIZZ = id;
+    }
     document.querySelector(".listagem").classList.add("hidden")
     document.querySelector(".perguntas").classList.remove("hidden")
-    console.log(ID_DO_QUIZZ)
     let promise= axios.get(`https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes/${ID_DO_QUIZZ}`)
     promise.then(renderizarQuizz)
 }
 
 function renderizarQuizz(resposta) {
-    console.log(resposta)
+    dados = resposta.data
     let alternativas = resposta.data.questions;
-    console.log(alternativas)
     let questoes =document.querySelector(".container");
-    console.log(alternativas.length)
+    let elemento = document.querySelector(".titulo-quiz");
+    questoes.innerHTML = "";
+    elemento.innerHTML = "";
     numeroDePerguntas = alternativas.length;
+    elemento.innerHTML = `<div class="topo-quiz" style="background:linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url(${resposta.data.image});">
+            <span>${resposta.data.title}</span>
+        </div>`
     for (let i=0; i<numeroDePerguntas; i++){
-        console.log("entrei no for")
+        let corDeFundo = alternativas[i].color;
         let respostas= alternativas[i].answers;
         respostas.sort(embaralharRespostas);
         let opcoes = respostas.length;
         questoes.innerHTML += `<div class="box-respostas">
-            <div class="enunciado">
+            <div class="enunciado" style="background-color:${corDeFundo};">
                 <span>${alternativas[i].title}</span>
             </div>
             <div class="respostas">
@@ -43,13 +49,11 @@ function renderizarRespostas (opcoes,respostas) {
     let htmlRespostas='';
     for (let i =0; i<opcoes; i++){
         if (respostas[i].isCorrectAnswer === true){
-            console.log("entrei no if")
             htmlRespostas += `<div class="resposta-certa opacidade" onclick="responderPergunta(this)">
                 <img src="${respostas[i].image}" >
                 <p>${respostas[i].text}</p>
             </div>` 
         } else {
-            console.log("entrei no else")
             htmlRespostas += `<div class="resposta-errada opacidade" onclick="responderPergunta(this)">
                 <img src="${respostas[i].image}" >
                 <p>${respostas[i].text}</p>
@@ -70,48 +74,65 @@ function responderPergunta(elemento) {
         let pontos = (100/numeroDePerguntas);
         porcentagemDeAcerto += pontos;
     }
-    console.log("conferirResposta: " + conferirResposta)
     let divPai=elemento.parentNode;
-    console.log(divPai)
     perguntasRespondidas += 1;
-    console.log("respondidas: " + perguntasRespondidas)
-    console.log("opcoes: " + perguntasRespondidas)
-    if (perguntasRespondidas === numeroDePerguntas) {
-        finalizarQuizzes()
+    let verificarRespondida = divPai.classList.contains("respondida")
+    if (!verificarRespondida == true) {
+        if (perguntasRespondidas === numeroDePerguntas) {
+            finalizarQuizzes()
+            setTimeout(scrollFinal,2000)
+        }
+        if ( divPai !== ultimoClick) {
+            elemento.parentNode.classList.add("respondida");
+            elemento.classList.remove("opacidade");
+            ultimoClick = divPai
+            setTimeout(scroll,2000)
+        }
     }
-    if ( divPai !== ultimoClick) {
-        elemento.parentNode.classList.add("respondida");
-        elemento.classList.remove("opacidade");
-        ultimoClick = divPai
-    }
-    
+}
+
+function scrollFinal() {
+    let elemento= document.querySelector(".mensagem");
+    elemento.scrollIntoView();
 }
 
 function finalizarQuizzes() {
-    console.log("ENTREI NO FINALIZAR")
     let pontos = Math.ceil(porcentagemDeAcerto);
     let paginaPerguntas=document.querySelector(".container");
+    let niveis= dados.levels;
+    let nivelDoJogador=0;
+    for (let i=0; i<niveis.length; i++) {
+        let comparador = niveis[i].minValue;
+        if (pontos >= comparador) {
+            nivelDoJogador = i;
+        }
+    }
     paginaPerguntas.innerHTML += `<div class="resultado-quiz">
         <div class="enunciado">
-            <span>${pontos}% de acerto: Você é praticamente um aluno de Hogwarts!</span>
+            <span>${pontos}% de acerto: ${niveis[nivelDoJogador].title}</span>
         </div>
         <div class="mensagem">
-            <img src="./Images/mensagem.png">
+            <img src="${niveis[nivelDoJogador].image}">
             <div>
-            <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p>
+            <p>${niveis[nivelDoJogador].text}</p>
             </div>
         </div>
     </div>
 
     <div class="botoes" >
         <button class="reiniciar" onclick="reiniciarQuiz()">Reiniciar Quizz</button>
-        <button class="home">Voltar pra home</button>
+        <button class="home" onclick="voltarHome()">Voltar pra home</button>
     </div>`
 }
 
-//Esta função é para reiniciar o quiz
-function reiniciarQuiz() {
-    let elemento = document.querySelector(".topo-quiz");
+//Esta função é para reiniciar o site
+
+function voltarHome() {
     window.location.reload();
+}
+
+function reiniciarQuiz() {
+    let elemento= document.querySelector(".topo-quiz");
     elemento.scrollIntoView();
+    buscarQuizz()
 }
