@@ -16,6 +16,10 @@ let tituloNivel;
 let porcentmin;
 let urlnivel;
 let descrinivel;
+let cont=0;
+let testeIniciado=1;
+let idDoNivel;
+
 
 //FORMULÁRIO
 
@@ -32,59 +36,12 @@ function abrirForms() {
   `;
 }
 
-function prosseguirPerg() {
-  title = document.querySelector(".titulo").value;
-  image = document.querySelector(".url").value;
-  qtPerg = document.querySelector(".qtPerg").value;
-  qtNiveis = document.querySelector(".qtNiveis").value;
-
-  //Validar título:
-  function testeTituloQuizz() {
-    if (title.length < 20 || title.length > 65) {
-      alert("Seu título precisar ter entre 20-65 caracteres.");
-      container2 = "";
-    } else {
-      testeURL();
-    }
-  }
-  testeTituloQuizz();
-
-  //Validar URL:
-  function testeURL() {
-    if (isvalidURL(image)) {
-      testeqtPerg();
-    } else {
-      alert("Url invalida");
-      container2 = "";
-    }
-  }
-
-  //Validar quantidade de perguntas:
-  function testeqtPerg() {
-    if (typeof parseInt(qtPerg) == "number" && parseInt(qtPerg) >= 3) {
-      testeNiveis();
-    } else {
-      alert("Você precisa fazer ao menos 3 perguntas.");
-      container2 = "";
-    }
-  }
-
-  //Validar quantidade de níveis:
-  function testeNiveis() {
-    if (typeof parseInt(qtNiveis) == "number" && parseInt(qtNiveis) >= 2) {
-      document.querySelector(".main2").classList.add("hidden");
-      document.querySelector(".main3").classList.remove("hidden");
-    } else {
-      alert("Você precisa fazer ao menos 2 níveis.");
-      container2 = "";
-    }
-  }
-
-  // Renderizar próxima página:
+function renderizarBoxPerguntas() {
   let container2 = document.querySelector(".perguntas2");
+  qtPerg = document.querySelector(".qtPerg").value;
   for (let i = 0; i < qtPerg; i++) {
     container2.innerHTML += `
-    <div class="box-perguntas listapergunta">
+    <div class="box-perguntas listapergunta" id=${i + 1}>
   
        <p> Pergunta ${i + 1} </p>
         <input class="inputbox textopergunta" type="text" placeholder="   Texto da pergunta" value="" />
@@ -103,110 +60,174 @@ function prosseguirPerg() {
         <input class="inputbox imagemincorreta3" type="text" placeholder="   URL da imagem: 3" value="" />
       
         </div>
-    `;
+        `;
+  }
+  prosseguirPerg()
+}
+
+function prosseguirPerg() {
+  title = document.querySelector(".titulo").value;
+  image = document.querySelector(".url").value;
+  qtNiveis = document.querySelector(".qtNiveis").value;
+  testeTituloQuizz();
+}
+  //Validar título:
+function testeTituloQuizz() {
+  if (title.length < 20 || title.length > 65) {
+    alert("Seu título precisar ter entre 20-65 caracteres.");
+    container2 = "";
+  } else {
+    testeURL();
   }
 }
 
-function prosseguirNiv() {
-  textopergunta = document.querySelector(".textopergunta").value;
-  corpergunta = document.querySelector(".corpergunta").value;
-  textocorreta = document.querySelector(".textocorreta").value;
-  imagemcorreta = document.querySelector(".imagemcorreta").value;
-  textoincorreta1 = document.querySelector(".textoincorreta1").value;
-  imagemincorreta1 = document.querySelector(".imagemincorreta1").value;
-  textoincorreta2 = document.querySelector(".textoincorreta2").value;
-  imagemincorreta2 = document.querySelector(".imagemincorreta2").value;
-  textoincorreta3 = document.querySelector(".textoincorreta3").value;
-  imagemincorreta3 = document.querySelector(".imagemincorreta3").value;
+//Validar URL:
+function testeURL() {
+  if (isvalidURL(image)) {
+    testeqtPerg();
+  } else {
+    alert("Url invalida");
+    container2 = "";
+  }
+}
+
+//Validar quantidade de perguntas:
+function testeqtPerg() {
+  if (typeof parseInt(qtPerg) == "number" && parseInt(qtPerg) >= 3) {
+    testeNiveis();
+  } else {
+    alert("Você precisa fazer ao menos 3 perguntas.");
+    container2 = "";
+  }
+}
+
+//Validar quantidade de níveis:
+function testeNiveis() {
+  if (typeof parseInt(qtNiveis) == "number" && parseInt(qtNiveis) >= 2) {
+    document.querySelector(".main2").classList.add("hidden");
+    document.querySelector(".main3").classList.remove("hidden");
+  } else {
+    alert("Você precisa fazer ao menos 2 níveis.");
+    container2 = "";
+  }
+}
+
+// AQUI COMECA A VALIDAÇÃO DO FORMULARIO DE PERGUNTAS
+// ESTAFUNÇÃO CHAMA UM DE CADA VEZ PARA VALIDAR, PASSANDO O ID COMO REFERENCIA
+function validarFomularioDePerguntas() {
+  let quantidadeValidacoes = cont;
+  testeIniciado =1;
+  if (cont<qtPerg) {
+    let idPerguntas= (cont+1)
+    prosseguirNiv(idPerguntas)
+  }
+}
+
+
+//ESTA FUNÇÃO FAZ A VALIDAÇÃO DE CADA UMA DAS CAIXAS DE PERGUNTAS SEPARADAMENTE
+function prosseguirNiv(idPerguntas) {
+  let elemento = document.getElementById(idPerguntas)
+  textopergunta = elemento.querySelector(".textopergunta").value;
+  corpergunta = elemento.querySelector(".corpergunta").value;
+  textocorreta = elemento.querySelector(".textocorreta").value;
+  imagemcorreta = elemento.querySelector(".imagemcorreta").value;
+  textoincorreta1 = elemento.querySelector(".textoincorreta1").value;
+  imagemincorreta1 = elemento.querySelector(".imagemincorreta1").value;
+  textoincorreta2 = elemento.querySelector(".textoincorreta2").value;
+  imagemincorreta2 = elemento.querySelector(".imagemincorreta2").value;
+  textoincorreta3 = elemento.querySelector(".textoincorreta3").value;
+  imagemincorreta3 = elemento.querySelector(".imagemincorreta3").value;
 
   let perguntasNodeList = document.querySelectorAll(".listapergunta");
   let arrayperg = Array.from(perguntasNodeList);
 
   arrayperg.forEach(testesPerguntas)
    //Funções de Validação:
- function testesPerguntas(){
-    // 1)Validar nº caracteres do título:
-    function testePerg() {
-      if (textopergunta.length < 20) {
-        alert("Sua pergunta precisa ter no mínimo 20 caracteres.");
-      } else {
-        testeCor();
-      }
-    }
-    testePerg();
-
-    // 2)Validar cores:
-    function testeCor() {
-      function isValidHex(corpergunta) {
-        if (!corpergunta || typeof corpergunta !== "string") return false;
-
-        if (corpergunta.substring(0, 1) === "#")
-          corpergunta = corpergunta.substring(1);
-
-        switch (corpergunta.length) {
-          case 3:
-            return /^[0-9A-F]{3}$/i.test(corpergunta);
-          case 6:
-            return /^[0-9A-F]{6}$/i.test(corpergunta);
-          case 8:
-            return /^[0-9A-F]{8}$/i.test(corpergunta);
-          default:
-            return false;
+  function testesPerguntas(){
+      // 1)Validar nº caracteres do título:
+      function testePerg() {
+        if (textopergunta.length < 20) {
+          alert("Sua pergunta precisa ter no mínimo 20 caracteres.");
+        } else {
+          testeCor();
         }
-        return false;
       }
-      if (isValidHex(corpergunta)) {
-        testeTexto();
-      } else {
-        alert("Adicione cor hexadecimal.");
+      if (testeIniciado === 1){
+        testePerg();
+        testeIniciado += 1;
       }
-    }
+      // 2)Validar cores:
+      function testeCor() {
+        function isValidHex(corpergunta) {
+          if (!corpergunta || typeof corpergunta !== "string") return false;
 
-    // 3)Validar respostas:
-    function testeTexto() {
-      if (
-        textocorreta == "" ||
-        textoincorreta1 == "" ||
-        textoincorreta2 == "" ||
-        textoincorreta3 == ""
-      ) {
-        alert("insira texto");
-      } else {
-        testeImgInco();
-      }
-    }
+          if (corpergunta.substring(0, 1) === "#")
+            corpergunta = corpergunta.substring(1);
 
-    // 4) Validar URL:
-    function testeImgInco() {
-      if (
-        isvalidURL(imagemcorreta) &&
-        isvalidURL(imagemincorreta1) &&
-        isvalidURL(imagemincorreta2) &&
-        isvalidURL(imagemincorreta3)
-      ) {
-        console.log("url ok");
-       
-      } else {
-        alert("Insira URL válida");
+          switch (corpergunta.length) {
+            case 3:
+              return /^[0-9A-F]{3}$/i.test(corpergunta);
+            case 6:
+              return /^[0-9A-F]{6}$/i.test(corpergunta);
+            case 8:
+              return /^[0-9A-F]{8}$/i.test(corpergunta);
+            default:
+              return false;
+          }
+          return false;
+        }
+        if (isValidHex(corpergunta)) {
+          testeTexto();
+        } else {
+          alert("Adicione cor hexadecimal.");
+        }
       }
-    }
- 
-  ; //Fim das funções de validação.
+
+      // 3)Validar respostas:
+      function testeTexto() {
+        if (
+          textocorreta == "" ||
+          textoincorreta1 == "" ||
+          textoincorreta2 == "" ||
+          textoincorreta3 == ""
+        ) {
+          alert("insira texto");
+        } else {
+          testeImgInco();
+        }
+      }
+
+      // 4) Validar URL:
+      function testeImgInco() {
+        if (
+          isvalidURL(imagemcorreta) &&
+          isvalidURL(imagemincorreta1) &&
+          isvalidURL(imagemincorreta2) &&
+          isvalidURL(imagemincorreta3)
+        ) {
+          cont +=1
+          validarFomularioDePerguntas()
+        
+        } else {
+          alert("Insira URL válida");
+        }
+        if (idPerguntas === (qtPerg-1)) {
+          cont=0
+          renderizarNiveis();
+        }
+      }
+    ; //Fim das funções de validação.
+  }
 }
-  //Transformar NodeList em Array
-  
-  //console.log(arrayperg);
-  //arrayperg.forEach(testesPerguntas)
 
-  //Aplicar validações na Array:
-  //const arrayVerificada = arrayperg.map(testesPerguntas);
-  //console.log(arrayVerificada);
-
-  // Renderizar próxima página:
+//ESTA FUNCAO RENDERIZA O FORMULARIO DE NIVEL DA PROXIMA PAGINA
+function renderizarNiveis() {
   let container2 = document.querySelector(".niveis");
+  document.querySelector(".main3").classList.add("hidden");
+  document.querySelector(".main4").classList.remove("hidden");
   for (let i = 0; i < qtNiveis; i++) {
     container2.innerHTML += `
-    <div class="box-perguntas nivel">
+    <div class="box-perguntas nivel" id=${"n"+i}>
     <p> Nivel ${i + 1} </p>
     <input class="inputbox titulonivel" type="text" placeholder="   Título do nível" value="" />
     <input class="inputbox porcentmin" type="text" placeholder="   % de acerto mínima" value="" />
@@ -217,11 +238,22 @@ function prosseguirNiv() {
   }
 }
 
-function finalizarQuizz() {
-  tituloNivel = document.querySelector(".titulonivel").value;
-  porcentmin = document.querySelector(".porcentmin").value;
-  urlnivel = document.querySelector(".urlnivel").value;
-  descrinivel = document.querySelector(".descrinivel").value;
+function validarNiveis() {
+  let quantidadeValidacoes = cont;
+  testeIniciado =1;
+  if (cont<qtNiveis) {
+    let idNivel= ("n" + cont)
+    idDoNivel= (cont);
+    finalizarQuizz(idNivel)
+  }
+}
+
+function finalizarQuizz(idNivel) {
+  let nivelVerificado = document.getElementById(idNivel);
+  tituloNivel = nivelVerificado.querySelector(".titulonivel").value;
+  porcentmin = nivelVerificado.querySelector(".porcentmin").value;
+  urlnivel = nivelVerificado.querySelector(".urlnivel").value;
+  descrinivel = nivelVerificado.querySelector(".descrinivel").value;
 
   //Validar título do nível:
   function testeTituloNivel() {
@@ -231,12 +263,14 @@ function finalizarQuizz() {
       testePorcent();
     }
   }
-  testeTituloNivel();
+  if (testeIniciado === 1){
+      testeTituloNivel();
+  }
 
   //Validar %:
   function testePorcent() {
     //merge com valor do outro script
-    if (porcentmin > 0 && porcentmin < 100) {
+    if (porcentmin >= 0 && porcentmin < 100 && porcentmin !=="") {
       testeUrlNivel();
     } else {
       alert("Adicione uma porcentagem válida");
@@ -256,16 +290,22 @@ function finalizarQuizz() {
   function testeDescri() {
     if (descrinivel.length < 30) {
       alert("Sua descrição precisa ter no mínimo 30 caracteres.");
-    } else {
-      alert("fim");
+    } 
+    else {
+      cont +=1
+      validarNiveis()
+    } 
+    if (idDoNivel === (qtNiveis-1)  && descrinivel!=="") {
+      cont=0
+      finalizarCriacao();
     }
   }
+}
 
-  // document.querySelector(".main4").classList.add("hidden");
-  // document.querySelector(".main5").classList.remove("hidden");
-
+function finalizarCriacao() {
+  document.querySelector(".main4").classList.add("hidden");
+  document.querySelector(".main5").classList.remove("hidden");
   let container2 = document.querySelector(".box-img");
-
   container2.innerHTML = `<img class="img-quizz"
   src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032" alt="" />
   <div class="texto-fim">
@@ -279,8 +319,7 @@ function acessarQuizz() {
 }
 
 function home() {
-  document.querySelector(".main5").classList.add("hidden");
-  document.querySelector(".main").classList.remove("hidden");
+  window.location.reload();
 }
 
 function isvalidURL(parametro) {
