@@ -358,3 +358,56 @@ function renderizarLista(resposta) {
 }
 
 buscarAPI()
+
+
+//ENVIAR QUIZ PRO SERVIDOR
+function postQuiz(){
+  
+  let formulario = {
+    title: title,
+    image: image,
+    questions: [
+      {
+        title: textopergunta,
+        color: corpergunta,
+        answers: [
+          {
+            text: textocorreta,
+            image: imagemcorreta,
+            isCorrectAnswer: true
+          },
+          {
+            text: textoincorreta1,
+            image: imagemincorreta1,
+            isCorrectAnswer: false
+          },
+          {
+            text: textoincorreta2,
+            image: imagemincorreta2,
+            isCorrectAnswer: false
+          },
+          {
+            text: textoincorreta3,
+            image: imagemincorreta3,
+            isCorrectAnswer: false
+          }
+        ]
+      }
+    ],
+    levels: [
+      {
+        title: tituloNivel,
+        image: urlnivel,
+        text: descrinivel,
+        minValue: porcentmin
+      }
+    ]
+  }
+
+  let promise = axios.post('https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes', formulario)
+
+    promise.then(quandoSucesso);
+      function quandoSucesso(){
+        console.log("Foi pro servidor!")
+      }
+    }
