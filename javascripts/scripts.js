@@ -119,8 +119,12 @@ function prosseguirNiv() {
   textoincorreta3 = document.querySelector(".textoincorreta3").value;
   imagemincorreta3 = document.querySelector(".imagemincorreta3").value;
 
-  //Funções de Validação:
-  function testesPerguntas() {
+  let perguntasNodeList = document.querySelectorAll(".listapergunta");
+  let arrayperg = Array.from(perguntasNodeList);
+
+  arrayperg.forEach(testesPerguntas)
+   //Funções de Validação:
+ function testesPerguntas(){
     // 1)Validar nº caracteres do título:
     function testePerg() {
       if (textopergunta.length < 20) {
@@ -180,24 +184,23 @@ function prosseguirNiv() {
         isvalidURL(imagemincorreta2) &&
         isvalidURL(imagemincorreta3)
       ) {
-        alert("url ok");
-        document.querySelector(".main3").classList.add("hidden");
-        document.querySelector(".main4").classList.remove("hidden");
+        console.log("url ok");
+       
       } else {
         alert("Insira URL válida");
       }
     }
-  }
-  testesPerguntas(); //Fim das funções de validação.
-
+ 
+  ; //Fim das funções de validação.
+}
   //Transformar NodeList em Array
-  let perguntasNodeList = document.querySelectorAll(".listapergunta");
-  let arrayperg = Array.from(perguntasNodeList);
-  console.log(arrayperg);
+  
+  //console.log(arrayperg);
+  //arrayperg.forEach(testesPerguntas)
 
   //Aplicar validações na Array:
-  const arrayVerificada = arrayperg.map(testesPerguntas);
-  console.log(arrayVerificada);
+  //const arrayVerificada = arrayperg.map(testesPerguntas);
+  //console.log(arrayVerificada);
 
   // Renderizar próxima página:
   let container2 = document.querySelector(".niveis");
