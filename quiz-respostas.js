@@ -8,6 +8,7 @@ let darScroll;
 
 
 function buscarQuizz(quiz) {
+    console.log(perguntasRespondidas)
     if (ID_DO_QUIZZ === undefined){
         let id = quiz.getAttribute("id")
     ID_DO_QUIZZ = id;
@@ -141,6 +142,7 @@ function voltarHome() {
 }
 
 function reiniciarQuiz() {
+    perguntasRespondidas =0;
     let elemento= document.querySelector(".topo-quiz");
     elemento.scrollIntoView();
     buscarQuizz()
