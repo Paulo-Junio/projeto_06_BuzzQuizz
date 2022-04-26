@@ -123,6 +123,7 @@ body {
   height: 181px;
   border-radius: 5px; 
   cursor: pointer;
+  background : linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url(https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg?t=1646676032) no-repeat center / cover;
 }
 
 .texto {
